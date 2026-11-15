@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Crear cuenta | StudyFlow</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/login.css?v=2">
   <link rel="stylesheet" href="css/registro.css">
-  <script src="js/registro.js" defer></script>
+  <script src="js/registro.js?v=2" defer></script>
 </head>
 <body>
   <header class="wrap top">
@@ -94,12 +94,21 @@
     </section>
   </main>
   <footer class="wrap footer">
-    <a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a>
-    <div><h3>Producto</h3><a href="index.html#funciones">Funcionalidades</a><span>Precios</span></div>
-    <div><h3>Recursos</h3><a href="#ayuda" data-dialog="ayuda">Centro de ayuda</a><span>Contactos</span></div>
-    <div><h3>Empresa</h3><span>Sobre nosotros</span><span>Política y privacidad</span><span>Términos y condiciones</span></div>
-    <div><h3>Síguenos en</h3><img class="social" src="icons/social.png" alt="Facebook, correo e Instagram"></div>
-  </footer>
+  <a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a>
+  <div><h3>Producto</h3><a href="index.html#funciones">Funcionalidades</a>
+    <details><summary>Precios</summary><p>La demostración de StudyFlow es gratuita. Aún no hay planes comerciales.</p></details>
+  </div>
+  <div><h3>Recursos</h3>
+    <details><summary>Centro de ayuda</summary><p>Para explorar StudyFlow, elige tu perfil y usa las credenciales de prueba en el <a href="login.html">inicio de sesión</a>.</p></details>
+    <details><summary>Contacto</summary><p>Cuéntanos qué pantalla estabas probando y qué ocurrió. Puedes dejar tus comentarios en el <a href="https://github.com/yiyotnt/STUDY_FLOW/issues">repositorio de StudyFlow</a>.</p></details>
+  </div>
+  <div><h3>Empresa</h3>
+    <details><summary>Sobre nosotros</summary><p>StudyFlow es un proyecto académico para ayudar a estudiantes y tutores a organizar y acompañar el estudio.</p></details>
+    <details><summary>Privacidad</summary><p>Usa datos ficticios. Los formularios de demostración procesan los datos en el navegador y no crean cuentas reales.</p></details>
+    <details><summary>Términos de uso</summary><p>Los paneles muestran datos de ejemplo. Esta versión está pensada para explorar el diseño y la navegación.</p></details>
+  </div>
+  <div><h3>Comparte StudyFlow</h3><a href="mailto:?subject=StudyFlow&amp;body=https%3A%2F%2Fyiyotnt.github.io%2FSTUDY_FLOW%2F">Compartir por correo</a><a href="https://github.com/yiyotnt/STUDY_FLOW">Ver proyecto en GitHub</a></div>
+</footer>
   <dialog id="condiciones" aria-labelledby="condiciones-titulo">
     <h2 id="condiciones-titulo">Condiciones de la demostración</h2>
     <p>Usa datos ficticios. La información del formulario se procesa en el navegador durante la prueba y se borra al finalizar. Para probar el inicio de sesión, usa los datos indicados en esa pantalla.</p>
@@ -110,5 +119,140 @@
     <p>Selecciona tu perfil, completa los campos obligatorios con datos ficticios y confirma tu registro de prueba. Puedes volver al paso anterior para cambiar de perfil.</p>
     <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
   </dialog>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+(() => {
+    if (document.documentElement.dataset.formularioListo) return;
+
+    const formulario = document.querySelector("#registro-form");
+    const pasos = Array.from(document.querySelectorAll("[data-paso]"));
+    const progreso = Array.from(document.querySelectorAll(".progreso li"));
+    const estado = document.querySelector("#estado-registro");
+    const errorPerfil = document.querySelector("#error-perfil");
+    const clave = document.querySelector("#clave");
+    const confirmar = document.querySelector("#confirmar");
+    const crear = document.querySelector("#crear");
+    const continuar = document.querySelector("#continuar");
+    let perfil = "";
+
+    function mostrarPaso(numero) {
+        pasos.forEach((paso, indice) => { paso.hidden = indice !== numero - 1; });
+        progreso.forEach((item, indice) => {
+            item.classList.toggle("completo", indice < numero - 1);
+            item.querySelector("span").textContent = indice < numero - 1 ? "✓" : String(indice + 1);
+            if (indice === numero - 1) item.setAttribute("aria-current", "step");
+            else item.removeAttribute("aria-current");
+        });
+        pasos[numero - 1].querySelector("h1").focus();
+    }
+
+    continuar.addEventListener("click", () => {
+        const elegido = document.querySelector('input[name="perfil"]:checked');
+        if (!elegido) {
+            errorPerfil.hidden = false;
+            errorPerfil.textContent = "Selecciona estudiante o tutor para continuar.";
+            document.querySelector('input[name="perfil"]').focus();
+            return;
+        }
+
+        perfil = elegido.value;
+        for (const tipo of ["estudiante", "tutor"]) {
+            const grupo = document.getElementById(tipo);
+            grupo.hidden = tipo !== perfil;
+            grupo.disabled = grupo.hidden;
+        }
+        document.querySelector("#titulo-formulario").textContent =
+            perfil === "tutor" ? "Crear cuenta - Tutor" : "Crear cuenta - Estudiante";
+        crear.textContent = "Crear cuenta de " + perfil;
+        mostrarPaso(2);
+    });
+
+    document.querySelector(".perfiles").addEventListener("change", () => {
+        errorPerfil.hidden = true;
+    });
+
+    document.querySelector("#volver").addEventListener("click", () => {
+        estado.textContent = "";
+        mostrarPaso(1);
+    });
+
+    function validar(campo) {
+        let mensaje = "";
+        if (campo.type === "checkbox" && !campo.checked) {
+            mensaje = "Acepta las condiciones de la demostración para continuar.";
+        } else if (campo.required && !campo.value.trim()) {
+            mensaje = campo.tagName === "SELECT" ? "Selecciona una opción." : "Completa este campo.";
+        } else if (campo.validity.typeMismatch) {
+            mensaje = "Escribe un correo con un formato como nombre@example.com.";
+        } else if (campo === clave && campo.value.length < 8) {
+            mensaje = "Usa al menos 8 caracteres.";
+        } else if (campo === confirmar && campo.value !== clave.value) {
+            mensaje = "Las contraseñas deben coincidir.";
+        }
+
+        const error = document.getElementById("error-" + campo.id);
+        error.textContent = mensaje;
+        error.hidden = !mensaje;
+        if (mensaje) campo.setAttribute("aria-invalid", "true");
+        else campo.removeAttribute("aria-invalid");
+        return !mensaje;
+    }
+
+    function revisarEdicion(evento) {
+        const campo = evento.target;
+        if (campo.hasAttribute("aria-invalid")) validar(campo);
+        if (campo === clave && confirmar.value) validar(confirmar);
+        estado.textContent = "";
+    }
+
+    formulario.addEventListener("input", revisarEdicion);
+    formulario.addEventListener("change", revisarEdicion);
+
+    formulario.addEventListener("submit", (evento) => {
+        evento.preventDefault();
+        const campos = Array.from(formulario.querySelectorAll("input:enabled, select:enabled"));
+        const errores = campos.filter((campo) => !validar(campo));
+        if (errores.length) {
+            estado.dataset.tipo = "error";
+            estado.textContent = "Corrige los campos indicados y vuelve a intentarlo.";
+            errores[0].focus();
+            return;
+        }
+
+        formulario.reset();
+        for (const boton of formulario.querySelectorAll("[data-toggle]")) {
+            document.getElementById(boton.dataset.toggle).type = "password";
+            boton.textContent = "Mostrar";
+        }
+        estado.textContent = "";
+        document.querySelector("#confirmacion-texto").textContent =
+            "Completaste el flujo de " + perfil + ". Puedes probar el inicio de sesión con sus credenciales de demostración.";
+        document.querySelector('[data-paso="3"] a').href = "login.html?perfil=" + perfil;
+        mostrarPaso(3);
+    });
+
+    for (const boton of document.querySelectorAll("[data-toggle]")) {
+        boton.addEventListener("click", () => {
+            const campo = document.getElementById(boton.dataset.toggle);
+            const visible = campo.type === "password";
+            campo.type = visible ? "text" : "password";
+            boton.textContent = visible ? "Ocultar" : "Mostrar";
+        });
+    }
+
+    for (const control of document.querySelectorAll("[data-dialog]")) {
+        control.addEventListener("click", (evento) => {
+            evento.preventDefault();
+            document.getElementById(control.dataset.dialog).showModal();
+        });
+    }
+
+    continuar.disabled = false;
+    crear.disabled = false;
+
+    document.documentElement.dataset.formularioListo = "true";
+})();
+});
+</script>
 </body>
 </html>
