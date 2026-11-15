@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         crear.disabled = true;
         try {
             const correo = formulario.elements.email.value.trim().toLowerCase();
-            await cuentasDemo.registrar(correo, formulario.elements.clave.value, perfilRegistrado);
+            await cuentasDemo.registrar(correo, formulario.elements.clave.value, perfilRegistrado, formulario.elements.nombre.value.trim());
         } catch {
             estado.dataset.tipo = "error";
             estado.textContent = "No se pudo guardar la cuenta de prueba. Abre el proyecto desde localhost o HTTPS.";
@@ -344,4 +344,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
