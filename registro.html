@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta | StudyFlow</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/registro.css">
+  <script src="js/registro.js" defer></script>
+</head>
+<body>
+  <header class="wrap top">
+    <a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <a href="index.html#funciones">Funcionalidades</a>
+      <a href="index.html#opiniones">Opiniones</a>
+    </nav>
+    <div class="actions">
+      <a class="button outline" href="login.html">Iniciar sesión</a>
+      <a class="button" href="registro.html" aria-current="page">Registrarse</a>
+    </div>
+  </header>
+
+  <main class="login-layout">
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <h2 id="intro-title">Organiza tu vida<br> académica <span>en un solo lugar</span></h2>
+        <p>Planifica tus tareas, gestiona tus cursos y alcanza tus metas de forma simple y efectiva.</p>
+      </div>
+      <img src="img/agenda.png" alt="Calendario académico en una computadora junto a un reloj y unos libros">
+    </section>
+
+    <section class="login-content registro">
+      <ol class="progreso" aria-label="Pasos del registro">
+        <li aria-current="step"><span>1</span>Tipo de usuario</li>
+        <li><span>2</span>Datos personales</li>
+        <li><span>3</span>Confirmación</li>
+      </ol>
+
+      <section data-paso="1">
+        <h1 tabindex="-1">Crear cuenta</h1>
+        <p class="login-subtitle">Primero cuéntanos cómo usarás StudyFlow.</p>
+        <fieldset class="perfiles">
+          <legend>¿Qué tipo de usuario eres?</legend>
+          <label><input type="radio" name="perfil" value="estudiante" aria-describedby="error-perfil"><img src="icons/estudiante.svg" alt=""><strong>Estudiante</strong><span>Quiero organizar mis cursos, tareas y horarios.</span></label>
+          <label><input type="radio" name="perfil" value="tutor" aria-describedby="error-perfil"><img src="icons/team.png" alt=""><strong>Tutor o responsable académico</strong><span>Quiero acompañar el progreso de mis estudiantes.</span></label>
+        </fieldset>
+        <p id="error-perfil" class="field-error" role="alert" hidden></p>
+        <button class="button submit" id="continuar" type="button" disabled>Continuar</button>
+        <noscript><p>Activa JavaScript para probar el registro.</p></noscript>
+        <div class="divider" aria-hidden="true">o</div>
+        <p class="register">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+      </section>
+
+      <section data-paso="2" hidden>
+        <h1 tabindex="-1" id="titulo-formulario">Crear cuenta</h1>
+        <p class="login-subtitle">Usa datos ficticios para completar este registro de prueba.</p>
+        <form id="registro-form" method="post" novalidate>
+          <label for="nombre">Nombre completo</label>
+          <div class="input-row"><input id="nombre" name="nombre" type="text" placeholder="nombre ficticio" required aria-describedby="error-nombre"></div>
+          <p id="error-nombre" class="field-error" hidden></p>
+          <label for="email">Correo electrónico</label>
+          <div class="input-row"><input id="email" name="email" type="email" placeholder="ejemplo@example.com" required aria-describedby="error-email"></div>
+          <p id="error-email" class="field-error" hidden></p>
+          <label for="clave">Contraseña</label>
+          <div class="input-row"><input id="clave" name="clave" type="password" placeholder="Mínimo 8 caracteres" required minlength="8" aria-describedby="error-clave"><button class="toggle" type="button" data-toggle="clave" aria-controls="clave">Mostrar</button></div>
+          <p id="error-clave" class="field-error" hidden></p>
+          <label for="confirmar">Confirmar contraseña</label>
+          <div class="input-row"><input id="confirmar" name="confirmar" type="password" placeholder="Repite la contraseña" required minlength="8" aria-describedby="error-confirmar"><button class="toggle" type="button" data-toggle="confirmar" aria-controls="confirmar">Mostrar</button></div>
+          <p id="error-confirmar" class="field-error" hidden></p>
+          <fieldset id="estudiante" hidden disabled><label for="universidad">Universidad</label><select id="universidad" name="universidad" required aria-describedby="error-universidad"><option value="">Selecciona una opción</option><option>Universidad de prueba</option><option>Otra universidad</option></select><p id="error-universidad" class="field-error" hidden></p><label for="carrera">Carrera</label><select id="carrera" name="carrera" required aria-describedby="error-carrera"><option value="">Selecciona una opción</option><option>Ingeniería</option><option>Administración</option><option>Educación</option><option>Otra carrera</option></select><p id="error-carrera" class="field-error" hidden></p><label for="ciclo">Ciclo académico</label><select id="ciclo" name="ciclo" required aria-describedby="error-ciclo"><option value="">Selecciona una opción</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><p id="error-ciclo" class="field-error" hidden></p></fieldset>
+          <fieldset id="tutor" hidden disabled><label for="institucion">Institución educativa</label><select id="institucion" name="institucion" required aria-describedby="error-institucion"><option value="">Selecciona una opción</option><option>Institución de prueba</option><option>Otra institución</option></select><p id="error-institucion" class="field-error" hidden></p><label for="rol">Rol</label><select id="rol" name="rol" required aria-describedby="error-rol"><option value="">Selecciona una opción</option><option>Tutor académico</option><option>Docente</option><option>Responsable académico</option><option>Otro rol</option></select><p id="error-rol" class="field-error" hidden></p><label for="area">Área o especialidad (opcional)</label><select id="area" name="area" aria-describedby="error-area"><option value="">Selecciona una opción</option><option>Ciencias</option><option>Tecnología</option><option>Humanidades</option><option>Otra área</option></select><p id="error-area" class="field-error" hidden></p></fieldset>
+          <div class="aceptacion">
+            <label><input id="acepto" type="checkbox" required aria-describedby="error-acepto"> Acepto las condiciones de la demostración.</label>
+            <button class="toggle" type="button" data-dialog="condiciones">Ver condiciones</button>
+            <p id="error-acepto" class="field-error" hidden></p>
+          </div>
+          <button class="button submit" id="crear" type="submit" disabled>Crear cuenta</button>
+          <p id="estado-registro" class="status" role="status"></p>
+          <button class="toggle volver" id="volver" type="button">← Volver</button>
+        </form>
+      </section>
+
+      <section data-paso="3" class="confirmacion" hidden>
+        <img src="icons/registro-ok.svg" alt="">
+        <h1 tabindex="-1">¡Registro de prueba completado!</h1>
+        <p id="confirmacion-texto"></p>
+        <a class="button submit" href="login.html">Iniciar sesión</a>
+        <a class="button outline submit" href="index.html">Ir al inicio</a>
+      </section>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a>
+    <div><h3>Producto</h3><a href="index.html#funciones">Funcionalidades</a><span>Precios</span></div>
+    <div><h3>Recursos</h3><a href="#ayuda" data-dialog="ayuda">Centro de ayuda</a><span>Contactos</span></div>
+    <div><h3>Empresa</h3><span>Sobre nosotros</span><span>Política y privacidad</span><span>Términos y condiciones</span></div>
+    <div><h3>Síguenos en</h3><img class="social" src="icons/social.png" alt="Facebook, correo e Instagram"></div>
+  </footer>
+  <dialog id="condiciones" aria-labelledby="condiciones-titulo">
+    <h2 id="condiciones-titulo">Condiciones de la demostración</h2>
+    <p>Usa datos ficticios. La información del formulario se procesa en el navegador durante la prueba y se borra al finalizar. Para probar el inicio de sesión, usa los datos indicados en esa pantalla.</p>
+    <form method="dialog"><button class="button">Cerrar</button></form>
+  </dialog>
+  <dialog id="ayuda" aria-labelledby="ayuda-title">
+    <h2 id="ayuda-title">Ayuda para registrarte</h2>
+    <p>Selecciona tu perfil, completa los campos obligatorios con datos ficticios y confirma tu registro de prueba. Puedes volver al paso anterior para cambiar de perfil.</p>
+    <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
+  </dialog>
+</body>
+</html>
