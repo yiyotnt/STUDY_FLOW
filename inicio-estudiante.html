@@ -1,8 +1,12 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inicio de estudiante | StudyFlow</title><link rel="stylesheet" href="css/styles.css?v=2"><link rel="stylesheet" href="css/panel.css"><script src="js/panel.js" defer></script><link rel="stylesheet" href="css/panel-header.css"></head>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inicio de estudiante | StudyFlow</title><link rel="stylesheet" href="css/styles.css?v=2"><link rel="stylesheet" href="css/panel.css"><script src="js/panel.js" defer></script><link rel="stylesheet" href="css/panel-tutor.css"><link rel="stylesheet" href="css/panel-header.css"></head>
 <body data-perfil="estudiante">
 <header class="encabezado-panel">
-  <div class="barra"><a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a><label class="buscar"><span aria-hidden="true">⌕</span><input id="buscar" type="search" aria-label="Buscar en el panel" placeholder="Buscar cursos, tareas o recursos…"></label><div class="cuenta"><button type="button" data-vista="Calendarios" aria-label="Agenda">▦</button><button type="button" data-vista="Mensajes" aria-label="Mensajes">▤</button><a href="login.html?perfil=estudiante" title="Volver al inicio de sesión"><b>E</b> Estudiante</a></div></div>
+  <div class="barra"><a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a><label class="buscar"><span aria-hidden="true">⌕</span><input id="buscar" type="search" aria-label="Buscar en el panel" placeholder="Buscar cursos, tareas o recursos…"></label><div class="cuenta">
+<button class="boton-notificaciones" type="button" id="abrir-notificaciones" aria-label="Notificaciones" aria-haspopup="dialog" aria-controls="notificaciones">
+  <span class="campana" aria-hidden="true"></span>
+</button>
+<a href="login.html?perfil=estudiante" title="Volver al inicio de sesión"><b>E</b> Estudiante</a></div></div>
   <nav class="menu-panel" aria-label="Menú del panel">
     <button type="button" data-vista="Inicio" aria-current="page">Inicio</button>
     <button type="button" data-vista="Mis cursos" >Mis cursos</button>
@@ -112,4 +116,20 @@
       <p class="sf-copyright">© 2026 StudyFlow. Todos los derechos reservados.</p>
     </footer>
 <dialog id="detalle" aria-labelledby="detalle-titulo"><h2 id="detalle-titulo"></h2><div id="detalle-contenido"></div><form method="dialog"><button autofocus>Cerrar</button></form></dialog>
+<dialog class="panel-notificaciones" id="notificaciones" aria-labelledby="notificaciones-titulo">
+  <h2 id="notificaciones-titulo">Notificaciones</h2>
+  <ul>
+    <li>Tienes tareas pendientes por revisar.</li>
+    <li>Consulta tus próximas entregas en Calendarios.</li>
+  </ul>
+  <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
+</dialog>
+<script>
+  const botonNotificaciones = document.querySelector("#abrir-notificaciones");
+  const ventanaNotificaciones = document.querySelector("#notificaciones");
+
+  botonNotificaciones.addEventListener("click", () => {
+    ventanaNotificaciones.showModal();
+  });
+</script>
 </body></html>
