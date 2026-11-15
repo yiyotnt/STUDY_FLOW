@@ -220,3 +220,18 @@ dialog p {
         width: min(100%, 260px);
     }
 }
+
+/* Ancho del formulario y separación entre campos */
+.login-layout { max-width: 1320px; margin-inline: auto; }
+.intro { padding: clamp(20px, 3vw, 44px); justify-content: center; }
+.intro img { width: min(100%, 390px); }
+.login-content { padding: clamp(20px, 3vw, 40px); }
+#perfil-login {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #85879e;
+    border-radius: 8px;
+    font: inherit;
+    color: inherit;
+    background: white;
+}

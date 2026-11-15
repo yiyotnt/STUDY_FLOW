@@ -384,3 +384,17 @@ figcaption {
         scroll-behavior: auto;
     }
 }
+
+/* Espaciado de la portada y enlaces del pie */
+.top { min-height: 64px; }
+.hero { padding-block: 22px 18px; }
+.hero h1 { font-size: clamp(1.65rem, 2.6vw, 2.35rem); }
+.hero-art { width: min(100%, 375px); }
+.benefits { padding-block: 14px; }
+.section { padding-block: 14px 18px; }
+.steps li { padding-top: 14px; }
+.steps img { margin-bottom: 10px; }
+.footer summary { cursor: pointer; font-size: .85rem; padding-block: 2px; }
+.footer details p { margin: 4px 0 8px; font-size: .82rem; }
+.footer details p a { display: inline; text-decoration: underline; }
+.footer summary:focus-visible { outline: 2px solid var(--color-principal); }
