@@ -246,10 +246,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = correo.value.trim().toLowerCase();
         const password = clave.value;
         const perfil = selectorPerfil.value;
+        let cuenta = null;
         let acceso = email === demo.correo && password === demo.clave;
         if (!acceso) {
             try {
-                acceso = await cuentasDemo.verificar(email, password, perfil);
+                cuenta = await cuentasDemo.verificar(email, password, perfil);
+                acceso = !!cuenta;
             } catch {
                 informar("No se pudo leer la cuenta de prueba. Abre el proyecto desde localhost o HTTPS.", "error");
                 return;
@@ -263,6 +265,11 @@ document.addEventListener("DOMContentLoaded", () => {
         clave.type = "password";
         mostrar.textContent = "Mostrar";
         clave.value = "";
+        try {
+            sessionStorage.setItem("studyflow:saludo:" + perfil, cuenta?.nombre || "");
+        } catch {
+            // El acceso de demostración sigue disponible sin almacenamiento.
+        }
         location.assign("inicio-" + perfil + ".html");
     });
 
