@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Crear cuenta | StudyFlow</title>
-  <link rel="stylesheet" href="css/styles.css?v=2">
-  <link rel="stylesheet" href="css/login.css?v=2">
-  <link rel="stylesheet" href="css/registro.css">
-  <script src="js/registro.js?v=2" defer></script>
+  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/login.css?v=3">
+  <link rel="stylesheet" href="css/registro.css?v=3">
 </head>
-<body>
+<body class="login-page">
   <header class="wrap top">
     <a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a>
     <nav aria-label="Navegación principal">
@@ -93,22 +92,97 @@
       </section>
     </section>
   </main>
-  <footer class="wrap footer">
-  <a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a>
-  <div><h3>Producto</h3><a href="index.html#funciones">Funcionalidades</a>
-    <details><summary>Precios</summary><p>La demostración de StudyFlow es gratuita. Aún no hay planes comerciales.</p></details>
-  </div>
-  <div><h3>Recursos</h3>
-    <details><summary>Centro de ayuda</summary><p>Para explorar StudyFlow, elige tu perfil y usa las credenciales de prueba en el <a href="login.html">inicio de sesión</a>.</p></details>
-    <details><summary>Contacto</summary><p>Cuéntanos qué pantalla estabas probando y qué ocurrió. Puedes dejar tus comentarios en el <a href="https://github.com/yiyotnt/STUDY_FLOW/issues">repositorio de StudyFlow</a>.</p></details>
-  </div>
-  <div><h3>Empresa</h3>
-    <details><summary>Sobre nosotros</summary><p>StudyFlow es un proyecto académico para ayudar a estudiantes y tutores a organizar y acompañar el estudio.</p></details>
-    <details><summary>Privacidad</summary><p>Usa datos ficticios. Los formularios de demostración procesan los datos en el navegador y no crean cuentas reales.</p></details>
-    <details><summary>Términos de uso</summary><p>Los paneles muestran datos de ejemplo. Esta versión está pensada para explorar el diseño y la navegación.</p></details>
-  </div>
-  <div><h3>Comparte StudyFlow</h3><a href="mailto:?subject=StudyFlow&amp;body=https%3A%2F%2Fyiyotnt.github.io%2FSTUDY_FLOW%2F">Compartir por correo</a><a href="https://github.com/yiyotnt/STUDY_FLOW">Ver proyecto en GitHub</a></div>
-</footer>
+  <footer class="sf-footer">
+      <div class="sf-footer-grid">
+        <a class="sf-brand" href="index.html#inicio">
+          <img class="logo" src="img/logo.png" alt="StudyFlow">
+        </a>
+
+        <section aria-labelledby="sf-producto">
+          <h2 id="sf-producto">Producto</h2>
+
+          <details>
+            <summary>Funcionalidades</summary>
+            <p>Organiza tus cursos, consulta las próximas entregas y marca las tareas que ya terminaste.</p>
+          </details>
+
+          <details>
+            <summary>Precios</summary>
+            <p><strong>Gratis · S/ 0 al mes</strong><br>Hasta tres cursos y un calendario.</p>
+            <p><strong>Plus · S/ 15 al mes</strong><br>Cursos ilimitados y recordatorios personalizados.</p>
+            <p><small>Precios de ejemplo.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-recursos">
+          <h2 id="sf-recursos">Recursos</h2>
+
+          <details>
+            <summary>Centro de ayuda</summary>
+            <p><strong>¿Cómo creo un curso?</strong><br>En tu panel, selecciona «Nuevo curso» y escribe su nombre.</p>
+            <p><strong>¿Cómo completo una tarea?</strong><br>Abre el curso y marca la casilla junto a la tarea.</p>
+          </details>
+
+          <details>
+            <summary>Contactos</summary>
+            <p><strong>Teléfono</strong><br>+1 (202) 555-0147</p>
+            <p><strong>Correo</strong><br>soporte@studyflow.example</p>
+            <p><strong>Horario</strong><br>Lunes a viernes, de 9 a. m. a 6 p. m.</p>
+            <p><small>Datos de contacto ficticios.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-empresa">
+          <h2 id="sf-empresa">Empresa</h2>
+
+          <details>
+            <summary>Sobre nosotros</summary>
+            <p>StudyFlow ayuda a estudiantes a reunir sus cursos, tareas y fechas de entrega en un solo lugar.</p>
+          </details>
+
+          <details>
+            <summary>Política de privacidad</summary>
+            <p><strong>Datos que utilizamos.</strong> Los datos de una cuenta pueden incluir tu nombre, correo, cursos, tareas y preferencias.</p>
+            <p><strong>Para qué los utilizamos.</strong> Para administrar tu cuenta, guardar tus tareas, enviarte los recordatorios que configures y responder tus consultas.</p>
+            <p><strong>Conservación y solicitudes.</strong> Conservamos los datos durante el tiempo necesario para prestar el servicio. Puedes solicitar acceso, corrección o eliminación escribiendo a privacidad@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+
+          <details>
+            <summary>Términos y condiciones</summary>
+            <p><strong>Uso del servicio.</strong> StudyFlow permite organizar cursos y tareas. Al usar el servicio, aceptas estos términos y te comprometes a respetar los derechos de otras personas.</p>
+            <p><strong>Cuenta y contenido.</strong> Protege tus credenciales. Conservas los derechos sobre el contenido que subes y autorizas a StudyFlow a almacenarlo y mostrarlo para prestar el servicio.</p>
+            <p><strong>Uso permitido.</strong> Queda prohibido acceder a cuentas ajenas, difundir contenido ilegal o interferir con el funcionamiento del servicio.</p>
+            <p><strong>Planes y consultas.</strong> Si contratas un plan de pago, verás el precio, la frecuencia de cobro y las condiciones de cancelación antes de confirmar. Para consultas, escribe a soporte@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-redes">
+          <h2 id="sf-redes">Síguenos en</h2>
+
+          <details>
+            <summary>Facebook <span class="sf-handle">@StudyFlowComunidadDemo</span></summary>
+            <p>StudyFlow Comunidad comparte ideas de organización y novedades del producto.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Instagram <span class="sf-handle">@studyflow.demo</span></summary>
+            <p>Consejos de estudio, calendarios y rutinas para organizar tu semana.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Correo <span class="sf-handle">soporte@studyflow.example</span></summary>
+            <p>Equipo de soporte de StudyFlow. Atención para consultas, sugerencias y problemas con la cuenta.</p>
+            <p><small>Dirección ficticia.</small></p>
+          </details>
+        </section>
+      </div>
+
+      <p class="sf-copyright">© 2026 StudyFlow. Todos los derechos reservados.</p>
+    </footer>
   <dialog id="condiciones" aria-labelledby="condiciones-titulo">
     <h2 id="condiciones-titulo">Condiciones de la demostración</h2>
     <p>Usa datos ficticios. La información del formulario se procesa en el navegador durante la prueba y se borra al finalizar. Para probar el inicio de sesión, usa los datos indicados en esa pantalla.</p>
