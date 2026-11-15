@@ -1,10 +1,22 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inicio de tutor | StudyFlow</title><link rel="stylesheet" href="css/styles.css?v=2"><link rel="stylesheet" href="css/panel.css"><link rel="stylesheet" href="css/panel-tutor.css"><script src="js/panel.js" defer></script></head>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inicio de tutor | StudyFlow</title><link rel="stylesheet" href="css/styles.css?v=2"><link rel="stylesheet" href="css/panel.css"><link rel="stylesheet" href="css/panel-tutor.css"><script src="js/panel.js" defer></script><link rel="stylesheet" href="css/panel-header.css"></head>
 <body data-perfil="tutor">
-<header class="barra"><a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a><label class="buscar"><span aria-hidden="true">⌕</span><input id="buscar" type="search" aria-label="Buscar en el panel" placeholder="Buscar estudiantes, tareas o recursos…"></label><div class="cuenta"><button class="boton-notificaciones" type="button" id="abrir-notificaciones" aria-label="Notificaciones" aria-haspopup="dialog" aria-controls="notificaciones">
+<header class="encabezado-panel">
+  <div class="barra"><a href="index.html"><img class="logo" src="img/logo.png" alt="StudyFlow"></a><label class="buscar"><span aria-hidden="true">⌕</span><input id="buscar" type="search" aria-label="Buscar en el panel" placeholder="Buscar estudiantes, tareas o recursos…"></label><div class="cuenta"><button class="boton-notificaciones" type="button" id="abrir-notificaciones" aria-label="Notificaciones" aria-haspopup="dialog" aria-controls="notificaciones">
   <span class="campana" aria-hidden="true"></span>
-</button><a href="login.html?perfil=tutor" title="Volver al inicio de sesión"><b>T</b> Tutor</a></div></header>
-<div class="estructura"><nav class="lateral" aria-label="Menú del panel"><button type="button" data-vista="Inicio" aria-current=true><span aria-hidden="true">⌂</span>Inicio</button><button type="button" data-vista="Mis estudiantes" ><span aria-hidden="true">♙</span>Mis estudiantes</button><button type="button" data-vista="Tutorías" ><span aria-hidden="true">▦</span>Tutorías</button><button type="button" data-vista="Recursos" ><span aria-hidden="true">▱</span>Recursos</button><button type="button" data-vista="Reportes" ><span aria-hidden="true">▥</span>Reportes</button><button type="button" data-vista="Mensajes" ><span aria-hidden="true">▤</span>Mensajes</button><button type="button" data-vista="Ayuda / Tutorial" ><span aria-hidden="true">?</span>Ayuda / Tutorial</button><button type="button" data-vista="Configuración" ><span aria-hidden="true">⚙</span>Configuración</button></nav>
+</button><a href="login.html?perfil=tutor" title="Volver al inicio de sesión"><b>T</b> Tutor</a></div></div>
+  <nav class="menu-panel" aria-label="Menú del panel">
+    <button type="button" data-vista="Inicio" aria-current="page">Inicio</button>
+    <button type="button" data-vista="Mis estudiantes" >Mis estudiantes</button>
+    <button type="button" data-vista="Tutorías" >Tutorías</button>
+    <button type="button" data-vista="Recursos" >Recursos</button>
+    <button type="button" data-vista="Reportes" >Reportes</button>
+    <button type="button" data-vista="Mensajes" >Mensajes</button>
+    <button type="button" data-vista="Ayuda / Tutorial" >Ayuda / Tutorial</button>
+    <button type="button" data-vista="Configuración" >Configuración</button>
+  </nav>
+</header>
+<div class="estructura">
 <main class="panel-inicio"><h1 id="saludo-tutor">Hola, tutor</h1><p>Revisa qué estudiantes requieren atención y consulta tus próximas tutorías.</p>
   <section class="card resumen"><div><h2>Resumen de seguimiento</h2><p>6 estudiantes asignados · 2 con riesgo alto · 2 con riesgo medio</p></div><button type="button" data-vista="Mis estudiantes">Ver mis estudiantes</button></section>
   <div class="columns tutor">
@@ -126,4 +138,3 @@
   });
 </script>
 </body></html>
-
