@@ -174,6 +174,7 @@
     <p>Abre «Cómo probar el formulario» para ver las credenciales de prueba. Si aparece un mensaje junto a un campo, sigue la indicación y vuelve a enviar.</p>
     <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
   </dialog>
+<script src="js/cuentas-demo.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 (() => {
@@ -231,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    formulario.addEventListener("submit", (evento) => {
+    formulario.addEventListener("submit", async (evento) => {
         evento.preventDefault();
         const correoValido = validar(correo);
         const claveValida = validar(clave);
@@ -242,15 +243,27 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (correo.value.trim().toLowerCase() !== demo.correo || clave.value !== demo.clave) {
-            informar("El correo o la contraseña son incorrectos. Revisa los datos o usa «Rellenar datos de prueba».", "error");
+        const email = correo.value.trim().toLowerCase();
+        const password = clave.value;
+        const perfil = selectorPerfil.value;
+        let acceso = email === demo.correo && password === demo.clave;
+        if (!acceso) {
+            try {
+                acceso = await cuentasDemo.verificar(email, password, perfil);
+            } catch {
+                informar("No se pudo leer la cuenta de prueba. Abre el proyecto desde localhost o HTTPS.", "error");
+                return;
+            }
+        }
+        if (!acceso) {
+            informar("Revisa el correo, la contraseña y el perfil. Si cerraste la pestaña, vuelve a registrarte.", "error");
             return;
         }
 
         clave.type = "password";
         mostrar.textContent = "Mostrar";
         clave.value = "";
-        location.assign("inicio-" + selectorPerfil.value + ".html");
+        location.assign("inicio-" + perfil + ".html");
     });
 
     mostrar.addEventListener("click", () => {
