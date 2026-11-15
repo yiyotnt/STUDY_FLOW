@@ -5,7 +5,7 @@
   <span class="campana" aria-hidden="true"></span>
 </button><a href="login.html?perfil=tutor" title="Volver al inicio de sesión"><b>T</b> Tutor</a></div></header>
 <div class="estructura"><nav class="lateral" aria-label="Menú del panel"><button type="button" data-vista="Inicio" aria-current=true><span aria-hidden="true">⌂</span>Inicio</button><button type="button" data-vista="Mis estudiantes" ><span aria-hidden="true">♙</span>Mis estudiantes</button><button type="button" data-vista="Tutorías" ><span aria-hidden="true">▦</span>Tutorías</button><button type="button" data-vista="Recursos" ><span aria-hidden="true">▱</span>Recursos</button><button type="button" data-vista="Reportes" ><span aria-hidden="true">▥</span>Reportes</button><button type="button" data-vista="Mensajes" ><span aria-hidden="true">▤</span>Mensajes</button><button type="button" data-vista="Ayuda / Tutorial" ><span aria-hidden="true">?</span>Ayuda / Tutorial</button><button type="button" data-vista="Configuración" ><span aria-hidden="true">⚙</span>Configuración</button></nav>
-<main class="panel-inicio"><h1>Hola, Mariana</h1><p>Revisa qué estudiantes requieren atención y consulta tus próximas tutorías.</p>
+<main class="panel-inicio"><h1 id="saludo-tutor">Hola, tutor</h1><p>Revisa qué estudiantes requieren atención y consulta tus próximas tutorías.</p>
   <section class="card resumen"><div><h2>Resumen de seguimiento</h2><p>6 estudiantes asignados · 2 con riesgo alto · 2 con riesgo medio</p></div><button type="button" data-vista="Mis estudiantes">Ver mis estudiantes</button></section>
   <div class="columns tutor">
   <section class="card"><h2>Estudiantes en riesgo</h2><p>Estudiantes asignados con riesgo alto.</p><article class="fila riesgo" data-busqueda><div><strong>Valeria Torres</strong><p>42 % de progreso · 3 actividades vencidas</p></div><span>Riesgo alto</span></article><article class="fila riesgo" data-busqueda><div><strong>Diego Salazar</strong><p>54 % de progreso · 3 de 5 días de constancia</p></div><span>Riesgo alto</span></article><button type="button" data-vista="Riesgo alto">Ver lista de riesgo alto</button></section>
@@ -111,6 +111,13 @@
   <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
 </dialog>
 <script>
+  try {
+    const nombre = sessionStorage.getItem("studyflow:saludo:tutor");
+    if (nombre) document.querySelector("#saludo-tutor").textContent = "Hola, " + nombre;
+  } catch {
+    // Se conserva el saludo genérico.
+  }
+
   const botonNotificaciones = document.querySelector("#abrir-notificaciones");
   const ventanaNotificaciones = document.querySelector("#notificaciones");
 
@@ -119,3 +126,4 @@
   });
 </script>
 </body></html>
+
