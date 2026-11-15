@@ -54,6 +54,32 @@ h3 {
   padding-inline: 24px;
 }
 
+/* Espacio vertical entre secciones */
+.hero {
+  padding-block: 40px;
+}
+
+main > .benefits,
+main > .section {
+  padding-block: 36px;
+}
+
+.section .subtitle {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.callout h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 690px) {
+  .hero,
+  main > .benefits,
+  main > .section {
+    padding-block: 28px;
+  }
+}
 /* Encabezado y navegación */
 .top {
   min-height: 78px;
