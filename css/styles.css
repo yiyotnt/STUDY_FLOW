@@ -54,30 +54,45 @@ h3 {
   padding-inline: 24px;
 }
 
-/* Espacio vertical entre secciones */
+/* Más altura para la portada */
 .hero {
-  padding-block: 40px;
+  padding-block: 72px;
 }
 
-main > .benefits,
+/* Espacio arriba y abajo de cada sección */
+main > .benefits {
+  padding-block: 44px;
+}
+
 main > .section {
-  padding-block: 36px;
+  padding-block: 64px;
 }
 
+/* Separación entre el título, la descripción y las tarjetas */
 .section .subtitle {
-  margin-top: 8px;
-  margin-bottom: 24px;
+  margin-top: 12px;
+  margin-bottom: 32px;
 }
 
-.callout h2 {
-  margin-bottom: 20px;
+/* Más espacio dentro de las tarjetas */
+.steps li,
+.features article {
+  padding-block: 24px;
 }
 
+/* Espaciado en celular */
 @media (max-width: 690px) {
   .hero,
-  main > .benefits,
   main > .section {
-    padding-block: 28px;
+    padding-block: 40px;
+  }
+
+  main > .benefits {
+    padding-block: 32px;
+  }
+
+  .section .subtitle {
+    margin-bottom: 24px;
   }
 }
 /* Encabezado y navegación */
