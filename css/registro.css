@@ -1,0 +1,139 @@
+.registro [hidden] {
+    display: none;
+}
+
+.progreso {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.progreso span {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto 5px;
+    border: 1px solid var(--color-borde);
+    border-radius: 50%;
+}
+
+.progreso [aria-current],
+.progreso .completo {
+    font-weight: bold;
+}
+
+.progreso [aria-current] span,
+.progreso .completo span {
+    background: var(--color-principal);
+    color: white;
+}
+
+.registro fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.perfiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px !important;
+}
+
+.perfiles legend {
+    margin: 0 auto 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.perfiles label {
+    position: relative;
+    display: grid;
+    align-content: start;
+    justify-items: center;
+    gap: 7px;
+    padding: 20px 10px;
+    border: 1px solid #85879e;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.perfiles label:has(input:checked),
+.perfiles label:focus-within {
+    outline: 2px solid var(--color-principal);
+    outline-offset: 2px;
+}
+
+.perfiles input {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
+.perfiles img {
+    width: 42px;
+}
+
+#registro-form label {
+    display: block;
+    margin: 10px 0 4px;
+    font-weight: 600;
+}
+
+#registro-form input {
+    accent-color: var(--color-principal);
+}
+
+#registro-form select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #85879e;
+    border-radius: 8px;
+    background: white;
+    color: inherit;
+    font: inherit;
+}
+
+#registro-form select[aria-invalid="true"] {
+    border-color: #a52039;
+}
+
+.aceptacion {
+    margin: 14px 0;
+}
+
+.volver {
+    display: block;
+    margin: 12px auto 0;
+}
+
+.confirmacion {
+    text-align: center;
+}
+
+.confirmacion img {
+    width: 108px;
+    margin: 20px auto 14px;
+}
+
+.confirmacion p {
+    margin: 10px 0 20px;
+}
+
+.confirmacion a + a {
+    margin-top: 12px;
+}
+
+@media (max-width: 360px) {
+    .perfiles {
+        grid-template-columns: 1fr;
+    }
+}
