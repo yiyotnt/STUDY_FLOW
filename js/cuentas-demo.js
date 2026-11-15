@@ -9,16 +9,15 @@ const cuentasDemo = (() => {
     }
 
     return {
-        async registrar(correo, clave, perfil) {
+        async registrar(correo, clave, perfil, nombre) {
             const sal = crypto.randomUUID();
             const verificador = await huella(clave, sal);
-            sessionStorage.setItem(llave(correo, perfil), JSON.stringify({ sal, verificador }));
+            sessionStorage.setItem(llave(correo, perfil), JSON.stringify({ sal, verificador, nombre }));
         },
 
         async verificar(correo, clave, perfil) {
             const cuenta = JSON.parse(sessionStorage.getItem(llave(correo, perfil)));
-            return !!cuenta && cuenta.verificador === await huella(clave, cuenta.sal);
+            return cuenta && cuenta.verificador === await huella(clave, cuenta.sal) ? cuenta : null;
         }
     };
 })();
-
