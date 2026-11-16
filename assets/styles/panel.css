@@ -1,0 +1,129 @@
+body[data-perfil] { background: #f8f7fb; color: #211c43; }
+.barra { display: flex; align-items: center; gap: 24px; padding: 12px 24px; background: white; }
+.buscar { display: flex; align-items: center; gap: 8px; width: min(48%, 580px); border: 1px solid #e7e2fa; padding: 6px 12px; border-radius: 9px; }
+.buscar input { width: 100%; border: 0; font: inherit; }
+.cuenta { margin-left: auto; display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.cuenta b { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #8f77ff; color: white; }
+.estructura { display: grid; grid-template-columns: 180px minmax(0,1fr); min-height: 78vh; }
+.lateral { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; background: #f1eefb; padding: 24px 12px; gap: 6px; }
+body[data-perfil] button { font: inherit; cursor: pointer; }
+.lateral button { text-align: left; border: 0; background: transparent; color: #514a6c; padding: 9px; border-radius: 8px; }
+.lateral button span { color: #604df5; display: inline-block; width: 25px; }
+.lateral button[aria-current], .lateral button:hover { background: #e6dffc; color: #4c34cf; }
+.panel-inicio { padding: clamp(18px, 3vw, 44px); }
+.panel-inicio h1 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); }
+.panel-inicio p { color: #5c5570; margin: 4px 0; }
+.panel-inicio small { color: #543bd8; font-weight: bold; }
+.columns { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 20px; align-items: start; }
+.columns.tutor { grid-template-columns: 1fr 1fr; align-items: stretch; }
+.card { background: white; border: 1px solid #e9e5f3; border-radius: 12px; padding: 16px; }
+.card h2 { font-size: 1.05rem; }
+.resumen { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.card.resumen { margin-top: 20px; }
+.fila { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px; margin-top: 8px; background: #f6f5fa; border-radius: 7px; }
+.fila p { font-size: .84rem; }
+.fila span { color: #4c34cf; background: #ebe5ff; padding: 3px 8px; border-radius: 20px; font-size: .78rem; white-space: nowrap; }
+.riesgo span { background: #ffeded; color: #9b2222; }
+.panel-inicio button, #detalle button { border: 0; border-radius: 6px; background: #604df5; color: white; padding: 8px 11px; }
+.card > button { margin-top: 20px; }
+.cuenta button { border: 0; background: white; color: #211c43; }
+body[data-perfil] [hidden] { display: none; }
+#detalle { max-width: min(420px, 90vw); border: 1px solid #e6dffc; border-radius: 12px; padding: 22px; }
+#detalle::backdrop { background: #211c4366; }
+#detalle-contenido { margin: 12px 0; }
+#resultado { margin-top: 12px; }
+@media (max-width: 760px) {
+    .estructura { grid-template-columns: 1fr; }
+    .lateral { flex-direction: row; flex-wrap: wrap; padding: 8px; }
+    .columns, .columns.tutor { grid-template-columns: 1fr; }
+    .barra { flex-wrap: wrap; padding: 12px; gap: 10px; }
+    .buscar { order: 1; width: 100%; }
+}
+/* Pie de página */
+
+.sf-footer {
+ padding: 32px clamp(20px, 5vw, 64px) 18px;
+ border-top: 1px solid #e8e3fa;
+ background: #fff;
+ color: #19246a;
+ font: 15px/1.5 Arial, sans-serif;
+}
+
+.sf-footer-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1.35fr 1.25fr;
+ align-items: start;
+ gap: 24px;
+ margin: 0 auto;
+}
+
+.sf-footer section {
+ min-width: 0;
+ overflow-wrap: anywhere;
+}
+
+.sf-brand { display: inline-block; }
+
+.sf-footer h2 {
+ margin: 0 0 8px;
+ font-size: 16px;
+}
+
+.sf-footer details + details {
+ margin-top: 6px;
+}
+
+.sf-footer summary {
+ padding: 3px 0;
+ cursor: pointer;
+}
+
+.sf-footer summary:hover,
+.sf-footer details[open] > summary {
+ color: #583ac7;
+}
+
+.sf-footer summary:focus-visible,
+.sf-footer a:focus-visible {
+ outline: 2px solid #6549da;
+ outline-offset: 4px;
+ border-radius: 2px;
+}
+
+.sf-footer details p {
+ margin: 6px 0 10px 16px;
+ color: #495071;
+ font-size: 14px;
+}
+
+.sf-handle {
+ display: block;
+ margin-left: 16px;
+ color: #544691;
+ font-size: 13px;
+}
+
+.sf-copyright {
+ margin: 24px auto 0;
+ padding-top: 14px;
+ border-top: 1px solid #e8e3fa;
+ color: #545b7d;
+ font-size: 13px;
+}
+
+@media (max-width: 960px) {
+ .sf-footer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+ }
+
+ .sf-brand {
+  grid-column: 1 / -1;
+ }
+}
+
+@media (max-width: 440px) {
+ .sf-footer-grid {
+  grid-template-columns: 1fr;
+ }
+}
+

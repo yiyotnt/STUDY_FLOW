@@ -1,0 +1,250 @@
+/* Distribución general del login */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+}
+
+.login-page > .top,
+.login-page > .sf-footer {
+    width: 100%;
+    max-width: none;
+}
+
+.login-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    flex: 1;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+    background: var(--fondo-lila);
+    padding: clamp(24px, 5vw, 72px);
+}
+
+.intro h2 {
+    font-size: clamp(1.3rem, 2.4vw, 2.3rem);
+}
+
+.intro h2 span {
+    color: var(--color-principal);
+}
+
+.intro p {
+    max-width: 36ch;
+    margin-top: 12px;
+}
+
+.intro img {
+    align-self: center;
+    width: min(100%, 480px);
+}
+
+.login-content {
+    width: min(100%, 620px);
+    padding: clamp(24px, 4vw, 64px) clamp(18px, 4vw, 64px);
+    justify-self: center;
+    align-self: center;
+}
+
+.login-content h1,
+.login-subtitle,
+.register {
+    text-align: center;
+}
+
+.login-content h1 {
+    font-size: clamp(1.2rem, 2.1vw, 1.75rem);
+}
+
+.login-subtitle {
+    margin: 3px 0 24px;
+}
+
+#login-form label {
+    display: block;
+    font-weight: 700;
+    margin: 16px 0 6px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #85879e;
+    border-radius: 9px;
+    padding: 0 10px;
+}
+
+.input-row:focus-within {
+    outline: 2px solid var(--color-principal);
+    outline-offset: 2px;
+}
+
+.input-row:has(input[aria-invalid="true"]) {
+    border-color: #a52039;
+}
+
+.input-row img {
+    width: 20px;
+}
+
+.input-row input {
+    color: inherit;
+    background: transparent;
+    width: 100%;
+    min-width: 0;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 11px 0;
+}
+
+.input-row input::placeholder {
+    color: #676d83;
+    font-style: italic;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--color-principal);
+    outline-offset: 3px;
+}
+
+.toggle {
+    background: transparent;
+    border: 0;
+    padding: 6px 0;
+}
+
+.toggle,
+.reset-link,
+.register a {
+    color: #4a37d4;
+    text-decoration: underline;
+    font-size: .87rem;
+    font-weight: 700;
+}
+
+.reset-link {
+    display: block;
+    width: fit-content;
+    margin: 12px 0 24px auto;
+}
+
+.submit {
+    width: 100%;
+    font-weight: 700;
+}
+
+.field-error,
+.status {
+    font-size: .88rem;
+}
+
+.field-error {
+    color: #a52039;
+    margin-top: 6px;
+}
+
+.status:not(:empty) {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    background: var(--fondo-lila);
+}
+
+.status[data-tipo="error"] {
+    color: #8b1730;
+    background: #fff0f3;
+}
+
+.status[data-tipo="exito"] {
+    color: #19593c;
+    background: #eaf7ef;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 16px 0;
+    color: var(--color-principal);
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-borde);
+}
+
+.demo {
+    margin-top: 16px;
+    font-size: .87rem;
+}
+
+.demo summary {
+    width: fit-content;
+    margin-inline: auto;
+    cursor: pointer;
+}
+
+.demo p {
+    margin: 10px 0;
+}
+
+dialog {
+    width: min(calc(100% - 32px), 430px);
+    padding: 24px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    color: var(--color-texto);
+}
+
+dialog::backdrop {
+    background: #17143588;
+}
+
+dialog p {
+    margin: 12px 0 18px;
+}
+
+@media (max-width: 760px) {
+    .login-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .intro {
+        gap: 14px;
+    }
+
+    .intro img {
+        width: min(100%, 260px);
+    }
+}
+#perfil-login {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #85879e;
+    border-radius: 8px;
+    font: inherit;
+    color: inherit;
+    background: white;
+}
+

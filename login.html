@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión | StudyFlow</title>
+  <link rel="stylesheet" href="assets/styles/styles.css?v=3">
+  <link rel="stylesheet" href="assets/styles/login.css?v=3">
+</head>
+<body class="login-page">
+  <header class="wrap top">
+    <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="StudyFlow"></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <a href="index.html#funciones">Funcionalidades</a>
+      <a href="index.html#opiniones">Opiniones</a>
+    </nav>
+    <div class="actions">
+      <a class="button" href="login.html" aria-current="page">Iniciar sesión</a>
+      <a class="button outline" href="registro.html">Registrarse</a>
+    </div>
+  </header>
+
+  <main class="login-layout">
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <h2 id="intro-title">Organiza tu vida<br> académica <span>en un solo lugar</span></h2>
+        <p>Planifica tus tareas, gestiona tus cursos y alcanza tus metas de forma simple y efectiva.</p>
+      </div>
+      <img src="assets/img/agenda.png" alt="Calendario académico en una computadora junto a un reloj y unos libros">
+    </section>
+
+    <section class="login-content" aria-labelledby="login-title">
+      <h1 id="login-title">Iniciar sesión</h1>
+      <p class="login-subtitle">Ingresa a tu cuenta StudyFlow</p>
+
+      <form id="login-form" method="post" novalidate>
+        <label for="perfil-login">Perfil</label>
+        <select id="perfil-login"><option value="estudiante">Estudiante</option><option value="tutor">Tutor</option></select>
+        <label for="correo">Correo electrónico</label>
+        <div class="input-row">
+          <img src="assets/img/icons/correo.svg" alt="">
+          <input id="correo" name="email" type="email" autocomplete="username" required
+                 placeholder="ejemplo@correo.com" aria-describedby="error-correo">
+        </div>
+        <p class="field-error" id="error-correo" hidden></p>
+
+        <label for="clave">Contraseña</label>
+        <div class="input-row">
+          <img src="assets/img/icons/candado.svg" alt="">
+          <input id="clave" name="password" type="password" autocomplete="current-password" required
+                 placeholder="Ingresa tu contraseña" aria-describedby="error-clave">
+          <button class="toggle" type="button" id="toggle-clave" aria-controls="clave">Mostrar</button>
+        </div>
+        <p class="field-error" id="error-clave" hidden></p>
+
+        <a class="reset-link" href="#recuperar" data-dialog="recuperar">¿Olvidaste tu contraseña?</a>
+        <button class="button submit" type="submit" disabled>Iniciar sesión</button>
+        <noscript><p>Activa JavaScript para probar este formulario.</p></noscript>
+        <p id="estado" class="status" role="status"></p>
+      </form>
+
+      <div class="divider" aria-hidden="true">o</div>
+      <p class="register">¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+      <details class="demo">
+        <summary>Cómo probar el formulario</summary>
+        <p>Usa <strong>demo@example.com</strong> y <strong>StudyFlow2026!</strong> para simular el inicio de sesión. Usa datos de prueba.</p>
+        <button class="button outline" id="demo-datos" type="button">Rellenar datos de prueba</button>
+      </details>
+    </section>
+  </main>
+
+  <footer class="sf-footer">
+      <div class="sf-footer-grid">
+        <a class="sf-brand" href="index.html#inicio">
+          <img class="logo" src="assets/img/logo.png" alt="StudyFlow">
+        </a>
+
+        <section aria-labelledby="sf-producto">
+          <h2 id="sf-producto">Producto</h2>
+
+          <details>
+            <summary>Funcionalidades</summary>
+            <p>Organiza tus cursos, consulta las próximas entregas y marca las tareas que ya terminaste.</p>
+          </details>
+
+          <details>
+            <summary>Precios</summary>
+            <p><strong>Gratis · S/ 0 al mes</strong><br>Hasta tres cursos y un calendario.</p>
+            <p><strong>Plus · S/ 15 al mes</strong><br>Cursos ilimitados y recordatorios personalizados.</p>
+            <p><small>Precios de ejemplo.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-recursos">
+          <h2 id="sf-recursos">Recursos</h2>
+
+          <details>
+            <summary>Centro de ayuda</summary>
+            <p><strong>¿Cómo creo un curso?</strong><br>En tu panel, selecciona «Nuevo curso» y escribe su nombre.</p>
+            <p><strong>¿Cómo completo una tarea?</strong><br>Abre el curso y marca la casilla junto a la tarea.</p>
+          </details>
+
+          <details>
+            <summary>Contactos</summary>
+            <p><strong>Teléfono</strong><br>+1 (202) 555-0147</p>
+            <p><strong>Correo</strong><br>soporte@studyflow.example</p>
+            <p><strong>Horario</strong><br>Lunes a viernes, de 9 a. m. a 6 p. m.</p>
+            <p><small>Datos de contacto ficticios.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-empresa">
+          <h2 id="sf-empresa">Empresa</h2>
+
+          <details>
+            <summary>Sobre nosotros</summary>
+            <p>StudyFlow ayuda a estudiantes a reunir sus cursos, tareas y fechas de entrega en un solo lugar.</p>
+          </details>
+
+          <details>
+            <summary>Política de privacidad</summary>
+            <p><strong>Datos que utilizamos.</strong> Los datos de una cuenta pueden incluir tu nombre, correo, cursos, tareas y preferencias.</p>
+            <p><strong>Para qué los utilizamos.</strong> Para administrar tu cuenta, guardar tus tareas, enviarte los recordatorios que configures y responder tus consultas.</p>
+            <p><strong>Conservación y solicitudes.</strong> Conservamos los datos durante el tiempo necesario para prestar el servicio. Puedes solicitar acceso, corrección o eliminación escribiendo a privacidad@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+
+          <details>
+            <summary>Términos y condiciones</summary>
+            <p><strong>Uso del servicio.</strong> StudyFlow permite organizar cursos y tareas. Al usar el servicio, aceptas estos términos y te comprometes a respetar los derechos de otras personas.</p>
+            <p><strong>Cuenta y contenido.</strong> Protege tus credenciales. Conservas los derechos sobre el contenido que subes y autorizas a StudyFlow a almacenarlo y mostrarlo para prestar el servicio.</p>
+            <p><strong>Uso permitido.</strong> Queda prohibido acceder a cuentas ajenas, difundir contenido ilegal o interferir con el funcionamiento del servicio.</p>
+            <p><strong>Planes y consultas.</strong> Si contratas un plan de pago, verás el precio, la frecuencia de cobro y las condiciones de cancelación antes de confirmar. Para consultas, escribe a soporte@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-redes">
+          <h2 id="sf-redes">Síguenos en</h2>
+
+          <details>
+            <summary>Facebook <span class="sf-handle">@StudyFlowComunidadDemo</span></summary>
+            <p>StudyFlow Comunidad comparte ideas de organización y novedades del producto.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Instagram <span class="sf-handle">@studyflow.demo</span></summary>
+            <p>Consejos de estudio, calendarios y rutinas para organizar tu semana.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Correo <span class="sf-handle">soporte@studyflow.example</span></summary>
+            <p>Equipo de soporte de StudyFlow. Atención para consultas, sugerencias y problemas con la cuenta.</p>
+            <p><small>Dirección ficticia.</small></p>
+          </details>
+        </section>
+      </div>
+
+      <p class="sf-copyright">© 2026 StudyFlow. Todos los derechos reservados.</p>
+    </footer>
+
+<dialog id="recuperar" aria-labelledby="recuperar-title">
+    <h2 id="recuperar-title">Recuperar contraseña</h2>
+    <p>Esta versión de prueba aún no envía correos de recuperación. Pulsa «Rellenar datos de prueba» si quieres continuar con la demostración.</p>
+    <form method="dialog"><button class="button" autofocus>Volver al formulario</button></form>
+  </dialog>
+
+  <dialog id="ayuda" aria-labelledby="ayuda-title">
+    <h2 id="ayuda-title">Ayuda para iniciar sesión</h2>
+    <p>Abre «Cómo probar el formulario» para ver las credenciales de prueba. Si aparece un mensaje junto a un campo, sigue la indicación y vuelve a enviar.</p>
+    <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
+  </dialog>
+<script src="assets/scripts/cuentas-demo.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+(() => {
+    if (document.documentElement.dataset.formularioListo) return;
+
+    const selectorPerfil = document.querySelector("#perfil-login");
+    if (new URLSearchParams(location.search).get("perfil") === "tutor") {
+        selectorPerfil.value = "tutor";
+    }
+
+    const formulario = document.querySelector("#login-form");
+    const correo = document.querySelector("#correo");
+    const clave = document.querySelector("#clave");
+    const estado = document.querySelector("#estado");
+    const mostrar = document.querySelector("#toggle-clave");
+    const demo = { correo: "demo@example.com", clave: "StudyFlow2026!" };
+
+    function validar(campo) {
+        let mensaje = "";
+
+        if (campo === correo) {
+            if (!correo.value.trim()) {
+                mensaje = "Escribe tu correo electrónico.";
+            } else if (correo.validity.typeMismatch) {
+                mensaje = "Revisa el correo. Usa un formato como nombre@ejemplo.com.";
+            }
+        } else if (!clave.value.trim()) {
+            mensaje = "Escribe tu contraseña.";
+        }
+
+        const error = document.querySelector("#error-" + campo.id);
+        error.textContent = mensaje;
+        error.hidden = !mensaje;
+
+        if (mensaje) {
+            campo.setAttribute("aria-invalid", "true");
+        } else {
+            campo.removeAttribute("aria-invalid");
+        }
+
+        return !mensaje;
+    }
+
+    function informar(mensaje, tipo) {
+        estado.textContent = mensaje;
+        estado.dataset.tipo = tipo;
+    }
+
+    for (const campo of [correo, clave]) {
+        campo.addEventListener("input", () => {
+            if (campo.hasAttribute("aria-invalid")) {
+                validar(campo);
+            }
+            informar("", "");
+        });
+    }
+
+    formulario.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+        const correoValido = validar(correo);
+        const claveValida = validar(clave);
+
+        if (!correoValido || !claveValida) {
+            informar("Revisa los campos indicados y vuelve a intentarlo.", "error");
+            (correoValido ? clave : correo).focus();
+            return;
+        }
+
+        const email = correo.value.trim().toLowerCase();
+        const password = clave.value;
+        const perfil = selectorPerfil.value;
+        let cuenta = null;
+        let acceso = email === demo.correo && password === demo.clave;
+        if (!acceso) {
+            try {
+                cuenta = await cuentasDemo.verificar(email, password, perfil);
+                acceso = !!cuenta;
+            } catch {
+                informar("No se pudo leer la cuenta de prueba. Abre el proyecto desde localhost o HTTPS.", "error");
+                return;
+            }
+        }
+        if (!acceso) {
+            informar("Revisa el correo, la contraseña y el perfil. Si cerraste la pestaña, vuelve a registrarte.", "error");
+            return;
+        }
+
+        clave.type = "password";
+        mostrar.textContent = "Mostrar";
+        clave.value = "";
+        try {
+            sessionStorage.setItem("studyflow:saludo:" + perfil, cuenta?.nombre || "");
+        } catch {
+            // El acceso de demostración sigue disponible sin almacenamiento.
+        }
+        location.assign("inicio-" + perfil + ".html");
+    });
+
+    mostrar.addEventListener("click", () => {
+        const visible = clave.type === "password";
+        clave.type = visible ? "text" : "password";
+        mostrar.textContent = visible ? "Ocultar" : "Mostrar";
+    });
+
+    document.querySelector("#demo-datos").addEventListener("click", () => {
+        correo.value = demo.correo;
+        clave.value = demo.clave;
+        clave.type = "password";
+        mostrar.textContent = "Mostrar";
+        validar(correo);
+        validar(clave);
+        informar("Datos de prueba listos. Pulsa «Iniciar sesión».", "");
+        formulario.querySelector('[type="submit"]').focus();
+    });
+
+    for (const enlace of document.querySelectorAll("[data-dialog]")) {
+        enlace.addEventListener("click", (evento) => {
+            evento.preventDefault();
+            document.getElementById(enlace.dataset.dialog).showModal();
+        });
+    }
+
+
+
+    formulario.querySelector('[type="submit"]').disabled = false;
+
+    document.documentElement.dataset.formularioListo = "true";
+})();
+});
+</script>
+</body>
+</html>

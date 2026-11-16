@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta | StudyFlow</title>
+  <link rel="stylesheet" href="assets/styles/styles.css?v=3">
+  <link rel="stylesheet" href="assets/styles/login.css?v=3">
+  <link rel="stylesheet" href="assets/styles/registro.css?v=3">
+</head>
+<body class="login-page">
+  <header class="wrap top">
+    <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="StudyFlow"></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <a href="index.html#funciones">Funcionalidades</a>
+      <a href="index.html#opiniones">Opiniones</a>
+    </nav>
+    <div class="actions">
+      <a class="button outline" href="login.html">Iniciar sesión</a>
+      <a class="button" href="registro.html" aria-current="page">Registrarse</a>
+    </div>
+  </header>
+
+  <main class="login-layout">
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <h2 id="intro-title">Organiza tu vida<br> académica <span>en un solo lugar</span></h2>
+        <p>Planifica tus tareas, gestiona tus cursos y alcanza tus metas de forma simple y efectiva.</p>
+      </div>
+      <img src="assets/img/agenda.png" alt="Calendario académico en una computadora junto a un reloj y unos libros">
+    </section>
+
+    <section class="login-content registro">
+      <ol class="progreso" aria-label="Pasos del registro">
+        <li aria-current="step"><span>1</span>Tipo de usuario</li>
+        <li><span>2</span>Datos personales</li>
+        <li><span>3</span>Confirmación</li>
+      </ol>
+
+      <section data-paso="1">
+        <h1 tabindex="-1">Crear cuenta</h1>
+        <p class="login-subtitle">Primero cuéntanos cómo usarás StudyFlow.</p>
+        <fieldset class="perfiles">
+          <legend>¿Qué tipo de usuario eres?</legend>
+          <label><input type="radio" name="perfil" value="estudiante" aria-describedby="error-perfil"><img src="assets/img/icons/estudiante.svg" alt=""><strong>Estudiante</strong><span>Quiero organizar mis cursos, tareas y horarios.</span></label>
+          <label><input type="radio" name="perfil" value="tutor" aria-describedby="error-perfil"><img src="assets/img/icons/team.png" alt=""><strong>Tutor o responsable académico</strong><span>Quiero acompañar el progreso de mis estudiantes.</span></label>
+        </fieldset>
+        <p id="error-perfil" class="field-error" role="alert" hidden></p>
+        <button class="button submit" id="continuar" type="button" disabled>Continuar</button>
+        <noscript><p>Activa JavaScript para probar el registro.</p></noscript>
+        <div class="divider" aria-hidden="true">o</div>
+        <p class="register">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+      </section>
+
+      <section data-paso="2" hidden>
+        <h1 tabindex="-1" id="titulo-formulario">Crear cuenta</h1>
+        <p class="login-subtitle">Coloque sus datos para completar el registro.</p>
+        <form id="registro-form" method="post" novalidate>
+          <label for="nombre">Nombre completo</label>
+          <div class="input-row"><input id="nombre" name="nombre" type="text" placeholder="nombre" required aria-describedby="error-nombre"></div>
+          <p id="error-nombre" class="field-error" hidden></p>
+          <label for="email">Correo electrónico</label>
+          <div class="input-row"><input id="email" name="email" type="email" placeholder="ejemplo@example.com" required aria-describedby="error-email"></div>
+          <p id="error-email" class="field-error" hidden></p>
+          <label for="clave">Contraseña</label>
+          <div class="input-row"><input id="clave" name="clave" type="password" placeholder="Mínimo 8 caracteres" required minlength="8" aria-describedby="error-clave"><button class="toggle" type="button" data-toggle="clave" aria-controls="clave">Mostrar</button></div>
+          <p id="error-clave" class="field-error" hidden></p>
+          <label for="confirmar">Confirmar contraseña</label>
+          <div class="input-row"><input id="confirmar" name="confirmar" type="password" placeholder="Repite la contraseña" required minlength="8" aria-describedby="error-confirmar"><button class="toggle" type="button" data-toggle="confirmar" aria-controls="confirmar">Mostrar</button></div>
+          <p id="error-confirmar" class="field-error" hidden></p>
+          <fieldset id="estudiante" hidden disabled><label for="universidad">Universidad</label><select id="universidad" name="universidad" required aria-describedby="error-universidad"><option value="">Selecciona una opción</option><option>Universidad de prueba</option><option>Otra universidad</option></select><p id="error-universidad" class="field-error" hidden></p><label for="carrera">Carrera</label><select id="carrera" name="carrera" required aria-describedby="error-carrera"><option value="">Selecciona una opción</option><option>Ingeniería</option><option>Administración</option><option>Educación</option><option>Otra carrera</option></select><p id="error-carrera" class="field-error" hidden></p><label for="ciclo">Ciclo académico</label><select id="ciclo" name="ciclo" required aria-describedby="error-ciclo"><option value="">Selecciona una opción</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><p id="error-ciclo" class="field-error" hidden></p></fieldset>
+          <fieldset id="tutor" hidden disabled><label for="institucion">Institución educativa</label><select id="institucion" name="institucion" required aria-describedby="error-institucion"><option value="">Selecciona una opción</option><option>Institución de prueba</option><option>Otra institución</option></select><p id="error-institucion" class="field-error" hidden></p><label for="rol">Rol</label><select id="rol" name="rol" required aria-describedby="error-rol"><option value="">Selecciona una opción</option><option>Tutor académico</option><option>Docente</option><option>Responsable académico</option><option>Otro rol</option></select><p id="error-rol" class="field-error" hidden></p><label for="area">Área o especialidad (opcional)</label><select id="area" name="area" aria-describedby="error-area"><option value="">Selecciona una opción</option><option>Ciencias</option><option>Tecnología</option><option>Humanidades</option><option>Otra área</option></select><p id="error-area" class="field-error" hidden></p></fieldset>
+          <div class="aceptacion">
+            <label><input id="acepto" type="checkbox" required aria-describedby="error-acepto"> Acepto las condiciones de la demostración.</label>
+            <button class="toggle" type="button" data-dialog="condiciones">Ver condiciones</button>
+            <p id="error-acepto" class="field-error" hidden></p>
+          </div>
+          <button class="button submit" id="crear" type="submit" disabled>Crear cuenta</button>
+          <p id="estado-registro" class="status" role="status"></p>
+          <button class="toggle volver" id="volver" type="button">← Volver</button>
+        </form>
+      </section>
+
+      <section data-paso="3" class="confirmacion" hidden>
+        <img src="assets/img/icons/registro-ok.svg" alt="">
+        <h1 tabindex="-1">¡Registro de prueba completado!</h1>
+        <p id="confirmacion-texto"></p>
+        <a class="button submit" href="login.html">Iniciar sesión</a>
+        <a class="button outline submit" href="index.html">Ir al inicio</a>
+      </section>
+    </section>
+  </main>
+  <footer class="sf-footer">
+      <div class="sf-footer-grid">
+        <a class="sf-brand" href="index.html#inicio">
+          <img class="logo" src="assets/img/logo.png" alt="StudyFlow">
+        </a>
+
+        <section aria-labelledby="sf-producto">
+          <h2 id="sf-producto">Producto</h2>
+
+          <details>
+            <summary>Funcionalidades</summary>
+            <p>Organiza tus cursos, consulta las próximas entregas y marca las tareas que ya terminaste.</p>
+          </details>
+
+          <details>
+            <summary>Precios</summary>
+            <p><strong>Gratis · S/ 0 al mes</strong><br>Hasta tres cursos y un calendario.</p>
+            <p><strong>Plus · S/ 15 al mes</strong><br>Cursos ilimitados y recordatorios personalizados.</p>
+            <p><small>Precios de ejemplo.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-recursos">
+          <h2 id="sf-recursos">Recursos</h2>
+
+          <details>
+            <summary>Centro de ayuda</summary>
+            <p><strong>¿Cómo creo un curso?</strong><br>En tu panel, selecciona «Nuevo curso» y escribe su nombre.</p>
+            <p><strong>¿Cómo completo una tarea?</strong><br>Abre el curso y marca la casilla junto a la tarea.</p>
+          </details>
+
+          <details>
+            <summary>Contactos</summary>
+            <p><strong>Teléfono</strong><br>+1 (202) 555-0147</p>
+            <p><strong>Correo</strong><br>soporte@studyflow.example</p>
+            <p><strong>Horario</strong><br>Lunes a viernes, de 9 a. m. a 6 p. m.</p>
+            <p><small>Datos de contacto ficticios.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-empresa">
+          <h2 id="sf-empresa">Empresa</h2>
+
+          <details>
+            <summary>Sobre nosotros</summary>
+            <p>StudyFlow ayuda a estudiantes a reunir sus cursos, tareas y fechas de entrega en un solo lugar.</p>
+          </details>
+
+          <details>
+            <summary>Política de privacidad</summary>
+            <p><strong>Datos que utilizamos.</strong> Los datos de una cuenta pueden incluir tu nombre, correo, cursos, tareas y preferencias.</p>
+            <p><strong>Para qué los utilizamos.</strong> Para administrar tu cuenta, guardar tus tareas, enviarte los recordatorios que configures y responder tus consultas.</p>
+            <p><strong>Conservación y solicitudes.</strong> Conservamos los datos durante el tiempo necesario para prestar el servicio. Puedes solicitar acceso, corrección o eliminación escribiendo a privacidad@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+
+          <details>
+            <summary>Términos y condiciones</summary>
+            <p><strong>Uso del servicio.</strong> StudyFlow permite organizar cursos y tareas. Al usar el servicio, aceptas estos términos y te comprometes a respetar los derechos de otras personas.</p>
+            <p><strong>Cuenta y contenido.</strong> Protege tus credenciales. Conservas los derechos sobre el contenido que subes y autorizas a StudyFlow a almacenarlo y mostrarlo para prestar el servicio.</p>
+            <p><strong>Uso permitido.</strong> Queda prohibido acceder a cuentas ajenas, difundir contenido ilegal o interferir con el funcionamiento del servicio.</p>
+            <p><strong>Planes y consultas.</strong> Si contratas un plan de pago, verás el precio, la frecuencia de cobro y las condiciones de cancelación antes de confirmar. Para consultas, escribe a soporte@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-redes">
+          <h2 id="sf-redes">Síguenos en</h2>
+
+          <details>
+            <summary>Facebook <span class="sf-handle">@StudyFlowComunidadDemo</span></summary>
+            <p>StudyFlow Comunidad comparte ideas de organización y novedades del producto.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Instagram <span class="sf-handle">@studyflow.demo</span></summary>
+            <p>Consejos de estudio, calendarios y rutinas para organizar tu semana.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Correo <span class="sf-handle">soporte@studyflow.example</span></summary>
+            <p>Equipo de soporte de StudyFlow. Atención para consultas, sugerencias y problemas con la cuenta.</p>
+            <p><small>Dirección ficticia.</small></p>
+          </details>
+        </section>
+      </div>
+
+      <p class="sf-copyright">© 2026 StudyFlow. Todos los derechos reservados.</p>
+    </footer>
+  <dialog id="condiciones" aria-labelledby="condiciones-titulo">
+    <h2 id="condiciones-titulo">Condiciones de la demostración</h2>
+    <p>Usa datos ficticios. La información del formulario se procesa en el navegador durante la prueba y se borra al finalizar. Para probar el inicio de sesión, usa los datos indicados en esa pantalla.</p>
+    <form method="dialog"><button class="button">Cerrar</button></form>
+  </dialog>
+  <dialog id="ayuda" aria-labelledby="ayuda-title">
+    <h2 id="ayuda-title">Ayuda para registrarte</h2>
+    <p>Selecciona tu perfil, completa los campos obligatorios con datos ficticios y confirma tu registro de prueba. Puedes volver al paso anterior para cambiar de perfil.</p>
+    <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
+  </dialog>
+<script src="assets/scripts/cuentas-demo.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+(() => {
+    if (document.documentElement.dataset.formularioListo) return;
+
+    const formulario = document.querySelector("#registro-form");
+    const pasos = Array.from(document.querySelectorAll("[data-paso]"));
+    const progreso = Array.from(document.querySelectorAll(".progreso li"));
+    const estado = document.querySelector("#estado-registro");
+    const errorPerfil = document.querySelector("#error-perfil");
+    const clave = document.querySelector("#clave");
+    const confirmar = document.querySelector("#confirmar");
+    const crear = document.querySelector("#crear");
+    const continuar = document.querySelector("#continuar");
+    let perfil = "";
+
+    function mostrarPaso(numero) {
+        pasos.forEach((paso, indice) => { paso.hidden = indice !== numero - 1; });
+        progreso.forEach((item, indice) => {
+            item.classList.toggle("completo", indice < numero - 1);
+            item.querySelector("span").textContent = indice < numero - 1 ? "✓" : String(indice + 1);
+            if (indice === numero - 1) item.setAttribute("aria-current", "step");
+            else item.removeAttribute("aria-current");
+        });
+        pasos[numero - 1].querySelector("h1").focus();
+    }
+
+    continuar.addEventListener("click", () => {
+        const elegido = document.querySelector('input[name="perfil"]:checked');
+        if (!elegido) {
+            errorPerfil.hidden = false;
+            errorPerfil.textContent = "Selecciona estudiante o tutor para continuar.";
+            document.querySelector('input[name="perfil"]').focus();
+            return;
+        }
+
+        perfil = elegido.value;
+        for (const tipo of ["estudiante", "tutor"]) {
+            const grupo = document.getElementById(tipo);
+            grupo.hidden = tipo !== perfil;
+            grupo.disabled = grupo.hidden;
+        }
+        document.querySelector("#titulo-formulario").textContent =
+            perfil === "tutor" ? "Crear cuenta - Tutor" : "Crear cuenta - Estudiante";
+        crear.textContent = "Crear cuenta de " + perfil;
+        mostrarPaso(2);
+    });
+
+    document.querySelector(".perfiles").addEventListener("change", () => {
+        errorPerfil.hidden = true;
+    });
+
+    document.querySelector("#volver").addEventListener("click", () => {
+        estado.textContent = "";
+        mostrarPaso(1);
+    });
+
+    function validar(campo) {
+        let mensaje = "";
+        if (campo.type === "checkbox" && !campo.checked) {
+            mensaje = "Acepta las condiciones de la demostración para continuar.";
+        } else if (campo.required && !campo.value.trim()) {
+            mensaje = campo.tagName === "SELECT" ? "Selecciona una opción." : "Completa este campo.";
+        } else if (campo.validity.typeMismatch) {
+            mensaje = "Escribe un correo con un formato como nombre@example.com.";
+        } else if (campo === clave && campo.value.length < 8) {
+            mensaje = "Usa al menos 8 caracteres.";
+        } else if (campo === confirmar && campo.value !== clave.value) {
+            mensaje = "Las contraseñas deben coincidir.";
+        }
+
+        const error = document.getElementById("error-" + campo.id);
+        error.textContent = mensaje;
+        error.hidden = !mensaje;
+        if (mensaje) campo.setAttribute("aria-invalid", "true");
+        else campo.removeAttribute("aria-invalid");
+        return !mensaje;
+    }
+
+    function revisarEdicion(evento) {
+        const campo = evento.target;
+        if (campo.hasAttribute("aria-invalid")) validar(campo);
+        if (campo === clave && confirmar.value) validar(confirmar);
+        estado.textContent = "";
+    }
+
+    formulario.addEventListener("input", revisarEdicion);
+    formulario.addEventListener("change", revisarEdicion);
+
+    formulario.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+        const campos = Array.from(formulario.querySelectorAll("input:enabled, select:enabled"));
+        const errores = campos.filter((campo) => !validar(campo));
+        if (errores.length) {
+            estado.dataset.tipo = "error";
+            estado.textContent = "Corrige los campos indicados y vuelve a intentarlo.";
+            errores[0].focus();
+            return;
+        }
+
+        const perfilRegistrado = perfil;
+        crear.disabled = true;
+        try {
+            const correo = formulario.elements.email.value.trim().toLowerCase();
+            await cuentasDemo.registrar(correo, formulario.elements.clave.value, perfilRegistrado, formulario.elements.nombre.value.trim());
+        } catch {
+            estado.dataset.tipo = "error";
+            estado.textContent = "No se pudo guardar la cuenta de prueba. Abre el proyecto desde localhost o HTTPS.";
+            return;
+        } finally {
+            crear.disabled = false;
+        }
+
+        formulario.reset();
+        for (const boton of formulario.querySelectorAll("[data-toggle]")) {
+            document.getElementById(boton.dataset.toggle).type = "password";
+            boton.textContent = "Mostrar";
+        }
+        estado.textContent = "";
+        document.querySelector("#confirmacion-texto").textContent =
+            "Tu cuenta de prueba está lista. Entra con el correo y la contraseña que acabas de registrar.";
+        document.querySelector('[data-paso="3"] a').href = "login.html?perfil=" + perfilRegistrado;
+        mostrarPaso(3);
+    });
+
+    for (const boton of document.querySelectorAll("[data-toggle]")) {
+        boton.addEventListener("click", () => {
+            const campo = document.getElementById(boton.dataset.toggle);
+            const visible = campo.type === "password";
+            campo.type = visible ? "text" : "password";
+            boton.textContent = visible ? "Ocultar" : "Mostrar";
+        });
+    }
+
+    for (const control of document.querySelectorAll("[data-dialog]")) {
+        control.addEventListener("click", (evento) => {
+            evento.preventDefault();
+            document.getElementById(control.dataset.dialog).showModal();
+        });
+    }
+
+    continuar.disabled = false;
+    crear.disabled = false;
+
+    document.documentElement.dataset.formularioListo = "true";
+})();
+});
+</script>
+</body>
+</html>
