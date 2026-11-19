@@ -501,3 +501,108 @@ figcaption {
 .section { padding-block: 14px 18px; }
 .steps li { padding-top: 14px; }
 .steps img { margin-bottom: 10px; }
+
+/* Mejoras de la landing de StudyFlow */
+.studyflow-landing {
+  --sf-cta: #4732c4;
+  --sf-cta-hover: #38249e;
+  --sf-texto-secundario: #3d4569;
+}
+
+.studyflow-landing .top,
+.studyflow-landing .actions {
+  flex-wrap: wrap;
+}
+
+.studyflow-landing .top nav {
+  font-size: 0.9375rem;
+}
+
+.studyflow-landing main :is(p, blockquote, figcaption),
+.studyflow-landing .sf-difference ul {
+  color: var(--sf-texto-secundario);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.studyflow-landing :is(.steps li, .features article) {
+  padding-block: 1.25rem;
+}
+
+.studyflow-landing .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-size: 1rem;
+}
+
+.studyflow-landing .button.sf-primary {
+  padding: 0.625rem 1rem;
+  border-color: var(--sf-cta);
+  background: var(--sf-cta);
+  color: #fff;
+  font-weight: 700;
+}
+
+.studyflow-landing .button.sf-primary:hover {
+  border-color: var(--sf-cta-hover);
+  background: var(--sf-cta-hover);
+  text-decoration: underline;
+}
+
+.studyflow-landing .button.outline {
+  color: var(--sf-cta);
+}
+
+.studyflow-landing .button.outline:hover {
+  background: var(--fondo-lila);
+}
+
+.studyflow-landing :is(a, summary):focus-visible {
+  outline: 3px solid var(--sf-cta);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px #fff;
+}
+
+.studyflow-landing .sf-difference {
+  border-block: 1px solid var(--color-borde);
+}
+
+.studyflow-landing .sf-difference h2,
+.studyflow-landing .callout h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.studyflow-landing .sf-difference ul {
+  width: fit-content;
+  max-width: 65ch;
+  margin: 0 auto;
+  padding-inline-start: 1.5rem;
+  text-align: start;
+}
+
+.studyflow-landing .sf-difference li + li {
+  margin-top: 0.65rem;
+}
+
+.studyflow-landing .callout p {
+  max-width: 56ch;
+  margin: 0 auto 1.25rem;
+}
+
+@media (max-width: 960px) {
+  .studyflow-landing .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .studyflow-landing .steps li::after {
+    display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  .studyflow-landing .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
