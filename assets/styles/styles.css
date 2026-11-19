@@ -779,10 +779,41 @@ figcaption {
   border-top: 1px solid #252332;
 }
 
-.studyflow-landing .hero,
-.studyflow-landing main > .section > .wrap {
-  max-width: 76rem;
-  margin-inline: auto;
+.studyflow-landing {
+  --sf-gutter: clamp(1rem, 4vw, 5rem);
+}
+
+.studyflow-landing .wrap,
+.studyflow-landing .callout {
+  padding-inline: var(--sf-gutter);
+}
+
+.studyflow-landing .hero {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1rem, 4vw, 4rem);
+}
+
+.studyflow-landing .hero h1 {
+  max-width: 23ch;
+}
+
+.studyflow-landing :is(.sf-difference ul, #funciones .grid, .benefits .grid, .steps, .quotes) {
+  max-width: none;
+}
+
+.studyflow-landing .sf-questions {
+  max-width: 68rem;
+}
+
+.studyflow-landing main > .sf-difference {
+  background: #faf9ff;
+  border-top-color: #252332;
+}
+
+@media (max-width: 690px) {
+  .studyflow-landing .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .studyflow-landing .top .logo,
@@ -792,8 +823,9 @@ figcaption {
 }
 
 .studyflow-landing .hero-art {
-  width: min(100%, 330px);
+  width: min(100%, 420px);
   height: auto;
+  justify-self: center;
 }
 
 .studyflow-landing .sf-difference li img {
