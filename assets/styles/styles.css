@@ -736,19 +736,6 @@ figcaption {
   padding: 0.5rem 1rem;
 }
 
-.studyflow-landing .sf-skip {
-  position: absolute;
-  inset: 0 auto auto 1rem;
-  z-index: 2;
-  padding: 0.75rem 1rem;
-  background: white;
-  transform: translateY(-150%);
-}
-
-.studyflow-landing .sf-skip:focus {
-  transform: translateY(0.5rem);
-}
-
 .studyflow-landing nav [aria-current="location"],
 .studyflow-landing .sf-questions a {
   color: var(--sf-cta);
@@ -778,4 +765,45 @@ figcaption {
 
 .studyflow-landing .sf-questions p {
   margin-top: 0.5rem;
+}
+
+/* Secciones de ancho completo */
+.studyflow-landing main > section {
+  width: 100%;
+  max-width: none;
+  border-block: 0;
+}
+
+.studyflow-landing main > section + section,
+.studyflow-landing .sf-footer {
+  border-top: 1px solid #252332;
+}
+
+.studyflow-landing .hero,
+.studyflow-landing main > .section > .wrap {
+  max-width: 76rem;
+  margin-inline: auto;
+}
+
+.studyflow-landing .top .logo,
+.studyflow-landing .sf-brand .logo {
+  width: clamp(156px, 16vw, 200px);
+  height: auto;
+}
+
+.studyflow-landing .hero-art {
+  width: min(100%, 330px);
+  height: auto;
+}
+
+.studyflow-landing .sf-difference li img {
+  margin-bottom: 0.75rem;
+}
+
+.studyflow-landing #pasos {
+  background: #f9f8ff;
+}
+
+.studyflow-landing #funciones {
+  background: #fff;
 }
