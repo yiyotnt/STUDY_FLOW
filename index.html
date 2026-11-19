@@ -7,23 +7,25 @@
     <link rel="stylesheet" href="assets/styles/styles.css">
   </head>
   <body class="studyflow-landing">
+    <a class="sf-skip" href="#contenido">Saltar al contenido</a>
     <header class="wrap top" id="inicio">
       <a href="#inicio">
         <img class="logo" src="assets/img/logo.png" alt="StudyFlow">
       </a>
       <nav aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
+        <a href="#inicio" aria-current="location">Inicio</a>
         <a href="#beneficios">Beneficios</a>
         <a href="#diferencial">Por qué StudyFlow</a>
         <a href="#funciones">Funcionalidades</a>
         <a href="#opiniones">Opiniones</a>
+        <a href="#ayuda">Ayuda</a>
       </nav>
       <div class="actions">
         <a class="button outline" href="login.html">Iniciar sesión</a>
         <a class="button sf-primary" href="registro.html">Crear cuenta gratis</a>
       </div>
     </header>
-    <main>
+    <main id="contenido" tabindex="-1">
       <section class="lavender">
         <div class="wrap hero">
           <div>
@@ -172,6 +174,25 @@
           </div>
         </div>
       </section>
+      <section class="section lavender sf-help" id="ayuda" aria-labelledby="titulo-ayuda">
+        <div class="wrap">
+          <h2 id="titulo-ayuda">Ayuda para empezar</h2>
+          <div class="sf-questions">
+            <details>
+              <summary>¿Cómo pruebo StudyFlow?</summary>
+              <p>Abre <a href="login.html#prueba">la demostración</a>, elige Estudiante o Tutor y pulsa «Rellenar datos de prueba». Luego selecciona «Iniciar sesión».</p>
+            </details>
+            <details>
+              <summary>¿Qué perfil elijo?</summary>
+              <p>Elige Estudiante para explorar cursos y entregas. Elige Tutor para explorar el seguimiento académico.</p>
+            </details>
+            <details>
+              <summary>¿Qué hago si no puedo iniciar sesión?</summary>
+              <p>Revisa el correo, la contraseña y el perfil. Si cerraste la pestaña donde creaste tu cuenta de prueba, vuelve a registrarte o usa los datos de la demostración.</p>
+            </details>
+          </div>
+        </div>
+      </section>
       <section class="section callout">
         <h2>Organiza las próximas entregas de tus cursos</h2>
         <p>Agrega tu primer curso y reúne sus tareas y fechas de entrega en un solo lugar.</p>
@@ -269,5 +290,6 @@
 
       <p class="sf-copyright">© 2026 StudyFlow. Todos los derechos reservados.</p>
     </footer>
+    <script src="assets/scripts/landing.js" defer></script>
   </body>
 </html>

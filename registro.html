@@ -19,7 +19,7 @@
     </nav>
     <div class="actions">
       <a class="button outline" href="login.html">Iniciar sesión</a>
-      <a class="button" href="registro.html" aria-current="page">Registrarse</a>
+      <a class="button" href="registro.html" aria-current="page">Crear cuenta gratis</a>
     </div>
   </header>
 
@@ -56,19 +56,19 @@
 
       <section data-paso="2" hidden>
         <h1 tabindex="-1" id="titulo-formulario">Crear cuenta</h1>
-        <p class="login-subtitle">Coloque sus datos para completar el registro.</p>
+        <p class="login-subtitle">Usa datos de prueba. Completa los campos obligatorios para continuar.</p>
         <form id="registro-form" method="post" novalidate>
           <label for="nombre">Nombre completo</label>
-          <div class="input-row"><input id="nombre" name="nombre" type="text" placeholder="nombre" required aria-describedby="error-nombre"></div>
+          <div class="input-row"><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="nombre" required aria-describedby="error-nombre"></div>
           <p id="error-nombre" class="field-error" hidden></p>
           <label for="email">Correo electrónico</label>
-          <div class="input-row"><input id="email" name="email" type="email" placeholder="ejemplo@example.com" required aria-describedby="error-email"></div>
+          <div class="input-row"><input id="email" name="email" type="email" autocomplete="email" placeholder="ejemplo@example.com" required aria-describedby="error-email"></div>
           <p id="error-email" class="field-error" hidden></p>
-          <label for="clave">Contraseña</label>
-          <div class="input-row"><input id="clave" name="clave" type="password" placeholder="Mínimo 8 caracteres" required minlength="8" aria-describedby="error-clave"><button class="toggle" type="button" data-toggle="clave" aria-controls="clave">Mostrar</button></div>
+          <label for="clave">Contraseña (mínimo 8 caracteres)</label>
+          <div class="input-row"><input id="clave" name="clave" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required minlength="8" aria-describedby="error-clave"><button class="toggle" type="button" data-toggle="clave" aria-controls="clave">Mostrar</button></div>
           <p id="error-clave" class="field-error" hidden></p>
           <label for="confirmar">Confirmar contraseña</label>
-          <div class="input-row"><input id="confirmar" name="confirmar" type="password" placeholder="Repite la contraseña" required minlength="8" aria-describedby="error-confirmar"><button class="toggle" type="button" data-toggle="confirmar" aria-controls="confirmar">Mostrar</button></div>
+          <div class="input-row"><input id="confirmar" name="confirmar" type="password" autocomplete="new-password" placeholder="Repite la contraseña" required minlength="8" aria-describedby="error-confirmar"><button class="toggle" type="button" data-toggle="confirmar" aria-controls="confirmar">Mostrar</button></div>
           <p id="error-confirmar" class="field-error" hidden></p>
           <fieldset id="estudiante" hidden disabled><label for="universidad">Universidad</label><select id="universidad" name="universidad" required aria-describedby="error-universidad"><option value="">Selecciona una opción</option><option>Universidad de prueba</option><option>Otra universidad</option></select><p id="error-universidad" class="field-error" hidden></p><label for="carrera">Carrera</label><select id="carrera" name="carrera" required aria-describedby="error-carrera"><option value="">Selecciona una opción</option><option>Ingeniería</option><option>Administración</option><option>Educación</option><option>Otra carrera</option></select><p id="error-carrera" class="field-error" hidden></p><label for="ciclo">Ciclo académico</label><select id="ciclo" name="ciclo" required aria-describedby="error-ciclo"><option value="">Selecciona una opción</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><p id="error-ciclo" class="field-error" hidden></p></fieldset>
           <fieldset id="tutor" hidden disabled><label for="institucion">Institución educativa</label><select id="institucion" name="institucion" required aria-describedby="error-institucion"><option value="">Selecciona una opción</option><option>Institución de prueba</option><option>Otra institución</option></select><p id="error-institucion" class="field-error" hidden></p><label for="rol">Rol</label><select id="rol" name="rol" required aria-describedby="error-rol"><option value="">Selecciona una opción</option><option>Tutor académico</option><option>Docente</option><option>Responsable académico</option><option>Otro rol</option></select><p id="error-rol" class="field-error" hidden></p><label for="area">Área o especialidad (opcional)</label><select id="area" name="area" aria-describedby="error-area"><option value="">Selecciona una opción</option><option>Ciencias</option><option>Tecnología</option><option>Humanidades</option><option>Otra área</option></select><p id="error-area" class="field-error" hidden></p></fieldset>
@@ -79,7 +79,8 @@
           </div>
           <button class="button submit" id="crear" type="submit" disabled>Crear cuenta</button>
           <p id="estado-registro" class="status" role="status"></p>
-          <button class="toggle volver" id="volver" type="button">← Volver</button>
+          <button class="toggle volver" id="volver" type="button">Volver a elegir perfil</button>
+          <p><a class="reset-link" href="index.html">Cancelar registro</a></p>
         </form>
       </section>
 
@@ -296,6 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const perfilRegistrado = perfil;
         crear.disabled = true;
+        estado.dataset.tipo = "";
+        estado.textContent = "Guardando tu cuenta de prueba…";
         try {
             const correo = formulario.elements.email.value.trim().toLowerCase();
             await cuentasDemo.registrar(correo, formulario.elements.clave.value, perfilRegistrado, formulario.elements.nombre.value.trim());

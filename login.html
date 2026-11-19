@@ -18,7 +18,7 @@
     </nav>
     <div class="actions">
       <a class="button" href="login.html" aria-current="page">Iniciar sesión</a>
-      <a class="button outline" href="registro.html">Registrarse</a>
+      <a class="button outline" href="registro.html">Crear cuenta gratis</a>
     </div>
   </header>
 
@@ -63,7 +63,7 @@
 
       <div class="divider" aria-hidden="true">o</div>
       <p class="register">¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
-      <details class="demo">
+      <details class="demo" id="prueba">
         <summary>Cómo probar el formulario</summary>
         <p>Usa <strong>demo@example.com</strong> y <strong>StudyFlow2026!</strong> para simular el inicio de sesión. Usa datos de prueba.</p>
         <button class="button outline" id="demo-datos" type="button">Rellenar datos de prueba</button>
@@ -190,6 +190,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const clave = document.querySelector("#clave");
     const estado = document.querySelector("#estado");
     const mostrar = document.querySelector("#toggle-clave");
+    const prueba = document.querySelector("#prueba");
+    if (location.hash === "#prueba") {
+        prueba.open = true;
+    }
     const demo = { correo: "demo@example.com", clave: "StudyFlow2026!" };
 
     function validar(campo) {
