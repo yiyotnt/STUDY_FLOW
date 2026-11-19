@@ -521,8 +521,8 @@ figcaption {
 .studyflow-landing main :is(p, blockquote, figcaption),
 .studyflow-landing .sf-difference ul {
   color: var(--sf-texto-secundario);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.65;
 }
 
 .studyflow-landing :is(.steps li, .features article) {
@@ -574,16 +574,35 @@ figcaption {
   font-size: clamp(1.4rem, 2.5vw, 2rem);
 }
 
+.studyflow-landing .sf-difference .subtitle {
+  max-width: 64ch;
+  margin-inline: auto;
+}
+
 .studyflow-landing .sf-difference ul {
-  width: fit-content;
-  max-width: 65ch;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 68rem;
   margin: 0 auto;
-  padding-inline-start: 1.5rem;
+  padding: 0;
+  list-style: none;
   text-align: start;
 }
 
-.studyflow-landing .sf-difference li + li {
-  margin-top: 0.65rem;
+.studyflow-landing .sf-difference li {
+  padding: 1.25rem;
+  border: 1px solid #d2caf9;
+  border-top: 4px solid var(--sf-cta);
+  border-radius: 0.75rem;
+  background: var(--fondo-lila);
+}
+
+.studyflow-landing .sf-difference strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-texto);
+  font-size: 1.125rem;
 }
 
 .studyflow-landing .callout p {
@@ -603,6 +622,53 @@ figcaption {
 
 @media (max-width: 440px) {
   .studyflow-landing .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.studyflow-landing .hero {
+  padding-block: clamp(2.25rem, 6vw, 5rem);
+}
+
+.studyflow-landing .hero h1 {
+  max-width: 19ch;
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+}
+
+.studyflow-landing .hero h1 span {
+  color: var(--sf-cta);
+}
+
+.studyflow-landing .hero p {
+  font-size: 1.125rem;
+}
+
+.studyflow-landing :is(.hero, .callout) .sf-primary {
+  min-height: 52px;
+  padding-inline: 1.5rem;
+}
+
+.studyflow-landing .callout {
+  background: #292060;
+  color: #fff;
+}
+
+.studyflow-landing .callout p {
+  color: #f0ecff;
+}
+
+.studyflow-landing .callout .sf-primary {
+  border-color: #fff;
+  background: #fff;
+  color: var(--sf-cta);
+}
+
+.studyflow-landing .callout .sf-primary:hover {
+  background: var(--fondo-lila);
+}
+
+@media (max-width: 690px) {
+  .studyflow-landing .sf-difference ul {
     grid-template-columns: minmax(0, 1fr);
   }
 }
