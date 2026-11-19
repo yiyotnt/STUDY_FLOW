@@ -6,7 +6,7 @@
     <title>StudyFlow | Organiza tu vida académica</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
   </head>
-  <body>
+  <body class="studyflow-landing">
     <header class="wrap top" id="inicio">
       <a href="#inicio">
         <img class="logo" src="assets/img/logo.png" alt="StudyFlow">
@@ -14,12 +14,13 @@
       <nav aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
         <a href="#beneficios">Beneficios</a>
+        <a href="#diferencial">Por qué StudyFlow</a>
         <a href="#funciones">Funcionalidades</a>
         <a href="#opiniones">Opiniones</a>
       </nav>
       <div class="actions">
-        <a class="button" href="login.html">Iniciar sesión</a>
-        <a class="button outline" href="registro.html">Registrarse</a>
+        <a class="button outline" href="login.html">Iniciar sesión</a>
+        <a class="button sf-primary" href="registro.html">Crear cuenta gratis</a>
       </div>
     </header>
     <main>
@@ -27,12 +28,11 @@
         <div class="wrap hero">
           <div>
             <h1>Organiza tu vida<br> académica <span>en un solo lugar</span></h1>
-            <p>Planifica tus tareas, gestiona tus cursos y alcanza tus metas de forma simple y efectiva.</p>
+            <p>Organiza tus entregas por curso, revisa qué te falta y da seguimiento a tu progreso con el apoyo de tutores.</p>
             <div class="actions">
-              <a class="button" href="registro.html">Comenzar gratis</a>
+              <a class="button sf-primary" href="registro.html">Crear cuenta gratis</a>
               <a class="button outline" href="#pasos">Ver cómo funciona</a>
             </div>
-            <p class="note">Disponible para estudiantes y tutores</p>
           </div>
           <img class="hero-art" src="assets/img/agenda.png" alt="Agenda académica en una computadora, junto a un reloj y una pila de libros">
         </div>
@@ -66,6 +66,17 @@
             <p>Una plataforma diseñada para acompañarte.</p>
           </div>
         </article>
+      </section>
+      <section class="section sf-difference" id="diferencial" aria-labelledby="titulo-diferencial">
+        <div class="wrap">
+          <h2 id="titulo-diferencial">Planificación por curso con apoyo de tutores</h2>
+          <p class="subtitle">StudyFlow reúne tres partes de la rutina académica en un solo lugar.</p>
+          <ul>
+            <li><strong>Organiza tus entregas.</strong> Agrupa tus tareas por curso con sus fechas y prioridades.</li>
+            <li><strong>Revisa tu progreso.</strong> Consulta qué tareas completaste y cuáles siguen pendientes.</li>
+            <li><strong>Da seguimiento con tu tutor.</strong> Los tutores pueden acompañar el avance de sus estudiantes.</li>
+          </ul>
+        </div>
       </section>
       <section class="lavender section" id="pasos">
         <div class="wrap">
@@ -159,8 +170,10 @@
         </div>
       </section>
       <section class="section callout">
-        <h2>Únete a miles de estudiantes que ya organizan su vida académica</h2>
-        <a class="button" href="registro.html">Comenzar ahora</a></section>
+        <h2>Organiza las próximas entregas de tus cursos</h2>
+        <p>Agrega tu primer curso y reúne sus tareas y fechas de entrega en un solo lugar.</p>
+        <a class="button sf-primary" href="registro.html">Crear cuenta gratis</a>
+      </section>
     </main>
     <footer class="sf-footer">
       <div class="sf-footer-grid">
@@ -255,6 +268,3 @@
     </footer>
   </body>
 </html>
-
-
-
