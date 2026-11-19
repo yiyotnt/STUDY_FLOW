@@ -735,3 +735,47 @@ figcaption {
   border-radius: 0;
   padding: 0.5rem 1rem;
 }
+
+.studyflow-landing .sf-skip {
+  position: absolute;
+  inset: 0 auto auto 1rem;
+  z-index: 2;
+  padding: 0.75rem 1rem;
+  background: white;
+  transform: translateY(-150%);
+}
+
+.studyflow-landing .sf-skip:focus {
+  transform: translateY(0.5rem);
+}
+
+.studyflow-landing nav [aria-current="location"],
+.studyflow-landing .sf-questions a {
+  color: var(--sf-cta);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.studyflow-landing .sf-questions {
+  max-width: 42rem;
+  margin: 1.5rem auto 0;
+  text-align: start;
+}
+
+.studyflow-landing .sf-questions details {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d2caf9;
+  border-radius: 0.75rem;
+  background: white;
+}
+
+.studyflow-landing .sf-questions summary {
+  padding-block: 0.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.studyflow-landing .sf-questions p {
+  margin-top: 0.5rem;
+}
