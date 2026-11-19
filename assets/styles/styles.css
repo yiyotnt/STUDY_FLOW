@@ -672,3 +672,66 @@ figcaption {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Separación visual con la paleta original */
+.studyflow-landing main > .section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.studyflow-landing main > .section:not(.callout) h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.studyflow-landing .benefits h2 {
+  margin-bottom: 1.75rem;
+}
+
+.studyflow-landing .benefits article {
+  align-items: flex-start;
+  text-align: start;
+}
+
+.studyflow-landing .sf-difference {
+  background: var(--fondo-lila);
+  border-color: #e1ddfa;
+}
+
+.studyflow-landing .sf-difference li {
+  background: #fff;
+  border: 1px solid #d2caf9;
+}
+
+.studyflow-landing #pasos {
+  background: #fff;
+}
+
+.studyflow-landing .steps li {
+  background: var(--fondo-lila);
+}
+
+.studyflow-landing #funciones {
+  max-width: none;
+  background: #f9f8ff;
+  border-block: 1px solid #e1ddfa;
+}
+
+.studyflow-landing #funciones .grid,
+.studyflow-landing .benefits .grid,
+.studyflow-landing .steps,
+.studyflow-landing .quotes {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.studyflow-landing .opinions {
+  background: #fff;
+  border: 0;
+}
+
+.studyflow-landing .quotes figure {
+  align-items: flex-start;
+  border: 0;
+  border-inline-start: 3px solid var(--color-borde);
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+}
