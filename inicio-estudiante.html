@@ -23,7 +23,121 @@
 <div class="estructura">
 <main class="panel-inicio"><div class="resumen"><div><small>HOY</small><h1>Organiza tu día</h1><p>Esto es lo que tienes previsto en tu agenda de ejemplo.</p></div><div><button type="button" data-vista="Personalizar panel">Personalizar panel</button> <button type="button" data-vista="Calendarios">Ver mi semana</button></div></div>
   <div class="columns"><section class="card"><h2>Próximos compromisos</h2><article class="fila " data-busqueda><div><strong>Práctica de derivadas</strong><p>Cálculo I · Entrega a las 18:00</p></div><span>Prioridad alta</span></article><article class="fila " data-busqueda><div><strong>Repaso de programación</strong><p>Programación I · Sesión de estudio a las 16:00</p></div><span>45 min</span></article></section>
-  <section class="card"><h2>Resumen de la semana</h2><div class="fila"><div><strong>3 pendientes</strong><p>Revisa qué tareas necesitan atención.</p></div><button type="button" data-vista="Tareas">Abrir</button></div><div class="fila"><div><strong>2 de 3 días de estudio</strong><p>Consulta tu avance semanal.</p></div><button type="button" data-vista="Progresos">Abrir</button></div></section></div><p id="resultado" role="status"></p></main></div>
+  <section class="card"><h2>Resumen de la semana</h2><div class="fila"><div><strong>3 pendientes</strong><p>Revisa qué tareas necesitan atención.</p></div><button type="button" data-vista="Tareas">Abrir</button></div><div class="fila"><div><strong>2 de 3 días de estudio</strong><p>Consulta tu avance semanal.</p></div><button type="button" data-vista="Progresos">Abrir</button></div></section></div>
+
+<section id="vista-mis-cursos" class="sf-cursos" hidden>
+    <div class="sf-cursos-cabecera">
+        <div>
+            <small>CICLO ACTUAL</small>
+            <h1>Mis cursos</h1>
+            <p>Administra tus horarios y revisa qué cursos requieren atención.</p>
+        </div>
+        <button type="button" id="registrar-curso">
+            Registrar curso
+        </button>
+    </div>
+
+    <div class="sf-cursos-grid">
+        <article class="sf-curso">
+            <h2>Base de Datos</h2>
+            <p>Lun y Mié · 09:00-10:30</p>
+            <p>2 pendientes · 1 vencida</p>
+            <div class="sf-curso-acciones">
+                <button type="button">Ver tareas</button>
+                <button type="button">Editar</button>
+                <button type="button">Eliminar</button>
+            </div>
+        </article>
+
+        <article class="sf-curso">
+            <h2>Programación I</h2>
+            <p>Mar y Jue · 11:00-12:30</p>
+            <p>1 pendiente · 0 vencidas</p>
+            <div class="sf-curso-acciones">
+                <button type="button">Ver tareas</button>
+                <button type="button">Editar</button>
+                <button type="button">Eliminar</button>
+            </div>
+        </article>
+
+        <article class="sf-curso">
+            <h2>Comunicación</h2>
+            <p>Vie · 10:00-11:30</p>
+            <p>0 pendientes · 0 vencidas</p>
+            <div class="sf-curso-acciones">
+                <button type="button">Ver tareas</button>
+                <button type="button">Editar</button>
+                <button type="button">Eliminar</button>
+            </div>
+        </article>
+    </div>
+
+    <button type="button" id="ver-horario">
+        Ver horario semanal
+    </button>
+</section>
+
+<section id="vista-registrar-curso" class="sf-cursos" hidden>
+
+    <div class="sf-cursos-cabecera">
+        <div>
+            <small>CICLO ACTUAL</small>
+            <h1>Registrar curso</h1>
+            <p>Mis cursos / Gestión de cursos y horarios</p>
+        </div>
+    </div>
+
+    <form id="form-registrar-curso" class="card">
+        <h2>Datos del curso</h2>
+
+        <label for="nombre-curso">Nombre del curso</label>
+        <input
+            type="text"
+            id="nombre-curso"
+            placeholder="Ejemplo: Redes I"
+            required
+        >
+
+        <p>Días de clase</p>
+
+        <div class="sf-dias">
+            <label><input type="checkbox" value="Lun"> Lun</label>
+            <label><input type="checkbox" value="Mar"> Mar</label>
+            <label><input type="checkbox" value="Mié"> Mié</label>
+            <label><input type="checkbox" value="Jue"> Jue</label>
+            <label><input type="checkbox" value="Vie"> Vie</label>
+            <label><input type="checkbox" value="Sáb"> Sáb</label>
+            <label><input type="checkbox" value="Dom"> Dom</label>
+        </div>
+
+        <div class="sf-horas">
+            <div>
+                <label for="hora-inicio">Hora de inicio</label>
+                <input type="time" id="hora-inicio" required>
+            </div>
+
+            <div>
+                <label for="hora-fin">Hora de finalización</label>
+                <input type="time" id="hora-fin" required>
+            </div>
+        </div>
+
+        <div class="sf-form-acciones">
+            <button type="button" id="cancelar-curso">
+                Cancelar
+            </button>
+
+            <button type="submit">
+                Registrar curso
+            </button>
+        </div>
+    </form>
+
+</section>
+
+  <p id="resultado" role="status"></p>
+</main>
+</div>
     <footer class="sf-footer">
       <div class="sf-footer-grid">
         <a class="sf-brand" href="#inicio">
