@@ -20,6 +20,33 @@ const vistas = {
 for (const boton of document.querySelectorAll("[data-vista]")) {
     boton.addEventListener("click", () => {
         const vista = boton.dataset.vista;
+        
+    if (
+    document.body.dataset.perfil === "estudiante" &&
+    (vista === "Mis cursos" || vista === "Inicio")
+    ) {
+    const mostrarCursos = vista === "Mis cursos";
+
+    document.querySelector(".resumen").hidden = mostrarCursos;
+    document.querySelector(".columns").hidden = mostrarCursos;
+    document.querySelector("#vista-mis-cursos").hidden = !mostrarCursos;
+    document.querySelector("#vista-registrar-curso").hidden = true;
+
+    document.querySelectorAll(".menu-panel [data-vista]").forEach(opcion => {
+        opcion.removeAttribute("aria-current");
+    });
+
+    boton.setAttribute("aria-current", "page");
+
+    if (!mostrarCursos) {
+        buscador.value = "";
+        filtrar();
+    }
+
+        document.querySelector("main").scrollIntoView();
+        return;
+    }
+
         if (vista === "Inicio") {
             buscador.value = "";
             filtrar();
@@ -58,3 +85,30 @@ function filtrar() {
 }
 
 buscador.addEventListener("input", filtrar);
+
+const botonRegistrarCurso = document.querySelector("#registrar-curso");
+const botonCancelarCurso = document.querySelector("#cancelar-curso");
+const vistaRegistrarCurso = document.querySelector("#vista-registrar-curso");
+const vistaMisCursos = document.querySelector("#vista-mis-cursos");
+
+if (botonRegistrarCurso && botonCancelarCurso && vistaRegistrarCurso && vistaMisCursos) {
+
+    botonRegistrarCurso.addEventListener("click", () => {
+
+        vistaMisCursos.hidden = true;
+
+        vistaRegistrarCurso.hidden = false;
+
+        document.querySelector("main").scrollIntoView();
+    });
+
+    botonCancelarCurso.addEventListener("click", () => {
+
+        vistaRegistrarCurso.hidden = true;
+
+        vistaMisCursos.hidden = false;
+
+        document.querySelector("main").scrollIntoView();
+    });
+}
+
