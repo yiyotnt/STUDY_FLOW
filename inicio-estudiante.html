@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Inicio de estudiante | StudyFlow</title><link rel="stylesheet" href="assets/styles/styles.css?v=2"><link rel="stylesheet" href="assets/styles/panel.css"><script src="assets/scripts/panel.js" defer></script><link rel="stylesheet" href="assets/styles/panel-tutor.css"><link rel="stylesheet" href="assets/styles/panel-header.css"></head>
+<body data-perfil="estudiante">
+<header class="encabezado-panel">
+  <div class="barra"><a href="index.html"><img class="logo" src="assets/img/logo.png" alt="StudyFlow"></a><label class="buscar"><span aria-hidden="true">⌕</span><input id="buscar" type="search" aria-label="Buscar en el panel" placeholder="Buscar cursos, tareas o recursos…"></label><div class="cuenta">
+<button class="boton-notificaciones" type="button" id="abrir-notificaciones" aria-label="Notificaciones" aria-haspopup="dialog" aria-controls="notificaciones">
+  <span class="campana" aria-hidden="true"></span>
+</button>
+<a href="login.html?perfil=estudiante" title="Volver al inicio de sesión"><b>E</b> Estudiante</a></div></div>
+  <nav class="menu-panel" aria-label="Menú del panel">
+    <button type="button" data-vista="Inicio" aria-current="page">Inicio</button>
+    <button type="button" data-vista="Mis cursos" >Mis cursos</button>
+    <button type="button" data-vista="Tareas" >Tareas</button>
+    <button type="button" data-vista="Calendarios" >Calendarios</button>
+    <button type="button" data-vista="Progresos" >Progresos</button>
+    <button type="button" data-vista="Recursos" >Recursos</button>
+    <button type="button" data-vista="Tutoría" >Tutoría</button>
+    <button type="button" data-vista="Mensajes" >Mensajes</button>
+    <button type="button" data-vista="Ayuda / Tutorial" >Ayuda / Tutorial</button>
+    <button type="button" data-vista="Configuración" >Configuración</button>
+  </nav>
+</header>
+<div class="estructura">
+<main class="panel-inicio"><div class="resumen"><div><small>HOY</small><h1>Organiza tu día</h1><p>Esto es lo que tienes previsto en tu agenda de ejemplo.</p></div><div><button type="button" data-vista="Personalizar panel">Personalizar panel</button> <button type="button" data-vista="Calendarios">Ver mi semana</button></div></div>
+  <div class="columns"><section class="card"><h2>Próximos compromisos</h2><article class="fila " data-busqueda><div><strong>Práctica de derivadas</strong><p>Cálculo I · Entrega a las 18:00</p></div><span>Prioridad alta</span></article><article class="fila " data-busqueda><div><strong>Repaso de programación</strong><p>Programación I · Sesión de estudio a las 16:00</p></div><span>45 min</span></article></section>
+  <section class="card"><h2>Resumen de la semana</h2><div class="fila"><div><strong>3 pendientes</strong><p>Revisa qué tareas necesitan atención.</p></div><button type="button" data-vista="Tareas">Abrir</button></div><div class="fila"><div><strong>2 de 3 días de estudio</strong><p>Consulta tu avance semanal.</p></div><button type="button" data-vista="Progresos">Abrir</button></div></section></div>
+
+<section id="vista-mis-cursos" class="sf-cursos" hidden>
+    <div class="sf-cursos-cabecera">
+        <div>
+            <small>CICLO ACTUAL</small>
+            <h1>Mis cursos</h1>
+            <p>Administra tus horarios y revisa qué cursos requieren atención.</p>
+        </div>
+        <button type="button" id="registrar-curso">
+            Registrar curso
+        </button>
+    </div>
+
+    <div class="sf-cursos-grid">
+        <article class="sf-curso">
+            <h2>Base de Datos</h2>
+            <p>Lun y Mié · 09:00-10:30</p>
+            <p>2 pendientes · 1 vencida</p>
+            <div class="sf-curso-acciones">
+                <button type="button">Ver tareas</button>
+                <button type="button">Editar</button>
+                <button type="button">Eliminar</button>
+            </div>
+        </article>
+
+        <article class="sf-curso">
+            <h2>Programación I</h2>
+            <p>Mar y Jue · 11:00-12:30</p>
+            <p>1 pendiente · 0 vencidas</p>
+            <div class="sf-curso-acciones">
+                <button type="button">Ver tareas</button>
+                <button type="button">Editar</button>
+                <button type="button">Eliminar</button>
+            </div>
+        </article>
+
+        <article class="sf-curso">
+            <h2>Comunicación</h2>
+            <p>Vie · 10:00-11:30</p>
+            <p>0 pendientes · 0 vencidas</p>
+            <div class="sf-curso-acciones">
+                <button type="button">Ver tareas</button>
+                <button type="button">Editar</button>
+                <button type="button">Eliminar</button>
+            </div>
+        </article>
+    </div>
+
+    <button type="button" id="ver-horario">
+        Ver horario semanal
+    </button>
+</section>
+
+<section id="vista-registrar-curso" class="sf-cursos" hidden>
+
+    <div class="sf-cursos-cabecera">
+        <div>
+            <small>CICLO ACTUAL</small>
+            <h1>Registrar curso</h1>
+            <p>Mis cursos / Gestión de cursos y horarios</p>
+        </div>
+    </div>
+
+    <form id="form-registrar-curso" class="card">
+        <h2>Datos del curso</h2>
+
+        <label for="nombre-curso">Nombre del curso</label>
+        <input
+            type="text"
+            id="nombre-curso"
+            placeholder="Ejemplo: Redes I"
+            required
+        >
+
+        <p>Días de clase</p>
+
+        <div class="sf-dias">
+            <label><input type="checkbox" value="Lun"> Lun</label>
+            <label><input type="checkbox" value="Mar"> Mar</label>
+            <label><input type="checkbox" value="Mié"> Mié</label>
+            <label><input type="checkbox" value="Jue"> Jue</label>
+            <label><input type="checkbox" value="Vie"> Vie</label>
+            <label><input type="checkbox" value="Sáb"> Sáb</label>
+            <label><input type="checkbox" value="Dom"> Dom</label>
+        </div>
+
+        <div class="sf-horas">
+            <div>
+                <label for="hora-inicio">Hora de inicio</label>
+                <input type="time" id="hora-inicio" required>
+            </div>
+
+            <div>
+                <label for="hora-fin">Hora de finalización</label>
+                <input type="time" id="hora-fin" required>
+            </div>
+        </div>
+
+        <div class="sf-form-acciones">
+            <button type="button" id="cancelar-curso">
+                Cancelar
+            </button>
+
+            <button type="submit">
+                Registrar curso
+            </button>
+        </div>
+    </form>
+
+</section>
+
+  <p id="resultado" role="status"></p>
+</main>
+</div>
+    <footer class="sf-footer">
+      <div class="sf-footer-grid">
+        <a class="sf-brand" href="#inicio">
+          <img class="logo" src="assets/img/logo.png" alt="StudyFlow">
+        </a>
+
+        <section aria-labelledby="sf-producto">
+          <h2 id="sf-producto">Producto</h2>
+
+          <details>
+            <summary>Funcionalidades</summary>
+            <p>Organiza tus cursos, consulta las próximas entregas y marca las tareas que ya terminaste.</p>
+          </details>
+
+          <details>
+            <summary>Precios</summary>
+            <p><strong>Gratis · S/ 0 al mes</strong><br>Hasta tres cursos y un calendario.</p>
+            <p><strong>Plus · S/ 15 al mes</strong><br>Cursos ilimitados y recordatorios personalizados.</p>
+            <p><small>Precios de ejemplo.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-recursos">
+          <h2 id="sf-recursos">Recursos</h2>
+
+          <details>
+            <summary>Centro de ayuda</summary>
+            <p><strong>¿Cómo creo un curso?</strong><br>En tu panel, selecciona «Nuevo curso» y escribe su nombre.</p>
+            <p><strong>¿Cómo completo una tarea?</strong><br>Abre el curso y marca la casilla junto a la tarea.</p>
+          </details>
+
+          <details>
+            <summary>Contactos</summary>
+            <p><strong>Teléfono</strong><br>+1 (202) 555-0147</p>
+            <p><strong>Correo</strong><br>soporte@studyflow.example</p>
+            <p><strong>Horario</strong><br>Lunes a viernes, de 9 a. m. a 6 p. m.</p>
+            <p><small>Datos de contacto ficticios.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-empresa">
+          <h2 id="sf-empresa">Empresa</h2>
+
+          <details>
+            <summary>Sobre nosotros</summary>
+            <p>StudyFlow ayuda a estudiantes a reunir sus cursos, tareas y fechas de entrega en un solo lugar.</p>
+          </details>
+
+          <details>
+            <summary>Política de privacidad</summary>
+            <p><strong>Datos que utilizamos.</strong> Los datos de una cuenta pueden incluir tu nombre, correo, cursos, tareas y preferencias.</p>
+            <p><strong>Para qué los utilizamos.</strong> Para administrar tu cuenta, guardar tus tareas, enviarte los recordatorios que configures y responder tus consultas.</p>
+            <p><strong>Conservación y solicitudes.</strong> Conservamos los datos durante el tiempo necesario para prestar el servicio. Puedes solicitar acceso, corrección o eliminación escribiendo a privacidad@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+
+          <details>
+            <summary>Términos y condiciones</summary>
+            <p><strong>Uso del servicio.</strong> StudyFlow permite organizar cursos y tareas. Al usar el servicio, aceptas estos términos y te comprometes a respetar los derechos de otras personas.</p>
+            <p><strong>Cuenta y contenido.</strong> Protege tus credenciales. Conservas los derechos sobre el contenido que subes y autorizas a StudyFlow a almacenarlo y mostrarlo para prestar el servicio.</p>
+            <p><strong>Uso permitido.</strong> Queda prohibido acceder a cuentas ajenas, difundir contenido ilegal o interferir con el funcionamiento del servicio.</p>
+            <p><strong>Planes y consultas.</strong> Si contratas un plan de pago, verás el precio, la frecuencia de cobro y las condiciones de cancelación antes de confirmar. Para consultas, escribe a soporte@studyflow.example.</p>
+            <p><small>Texto de ejemplo para StudyFlow.</small></p>
+          </details>
+        </section>
+
+        <section aria-labelledby="sf-redes">
+          <h2 id="sf-redes">Síguenos en</h2>
+
+          <details>
+            <summary>Facebook <span class="sf-handle">@StudyFlowComunidadDemo</span></summary>
+            <p>StudyFlow Comunidad comparte ideas de organización y novedades del producto.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Instagram <span class="sf-handle">@studyflow.demo</span></summary>
+            <p>Consejos de estudio, calendarios y rutinas para organizar tu semana.</p>
+            <p><small>Perfil ficticio.</small></p>
+          </details>
+
+          <details>
+            <summary>Correo <span class="sf-handle">soporte@studyflow.example</span></summary>
+            <p>Equipo de soporte de StudyFlow. Atención para consultas, sugerencias y problemas con la cuenta.</p>
+            <p><small>Dirección ficticia.</small></p>
+          </details>
+        </section>
+      </div>
+
+      <p class="sf-copyright">© 2026 StudyFlow. Todos los derechos reservados.</p>
+    </footer>
+<dialog id="detalle" aria-labelledby="detalle-titulo"><h2 id="detalle-titulo"></h2><div id="detalle-contenido"></div><form method="dialog"><button autofocus>Cerrar</button></form></dialog>
+<dialog class="panel-notificaciones" id="notificaciones" aria-labelledby="notificaciones-titulo">
+  <h2 id="notificaciones-titulo">Notificaciones</h2>
+  <ul>
+    <li>Tienes tareas pendientes por revisar.</li>
+    <li>Consulta tus próximas entregas en Calendarios.</li>
+  </ul>
+  <form method="dialog"><button class="button" autofocus>Cerrar</button></form>
+</dialog>
+<script>
+  const botonNotificaciones = document.querySelector("#abrir-notificaciones");
+  const ventanaNotificaciones = document.querySelector("#notificaciones");
+
+  botonNotificaciones.addEventListener("click", () => {
+    ventanaNotificaciones.showModal();
+  });
+</script>
+</body></html>

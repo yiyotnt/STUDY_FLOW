@@ -1,0 +1,18 @@
+/* Vistas sencillas de calendario, mensajes y ayuda. */
+.vista-simple .acciones-principales{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 28px}
+.vista-simple .boton.principal{background:#5b39d6;color:white;border-color:#5b39d6}
+.vista-simple .subtitulo{margin-bottom:28px}
+.calendario-aviso{margin-bottom:22px;padding:24px;min-height:150px}
+.calendario-aviso h2{font-size:17px}.calendario-aviso p{border-top:1px solid var(--borde);padding-top:20px;margin-top:32px;font-size:15px;font-weight:600}
+.calendario-cabecera{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+.calendario-cabecera p{font-size:14px}.semana-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.dia-calendario{min-height:215px;background:#faf9ff;border:1px solid var(--borde);border-radius:10px;padding:12px 8px}
+.dia-calendario h3{font-size:14px;margin:0 0 18px}.evento{display:block;background:#e5efff;color:#231d40;border-radius:6px;padding:9px 6px;margin-bottom:10px;font-size:12px;font-weight:600;overflow-wrap:anywhere}
+.evento.estudio{background:#eee7ff}.evento.entrega{background:#fff0e9}.vista-simple details{border-top:1px solid var(--borde);padding:16px 0}.vista-simple summary{cursor:pointer;color:#5b39d6;font-size:14px;font-weight:600}.vista-simple details p{font-size:14px;margin:14px 0}.vista-simple .panel-extra{margin-top:24px;scroll-margin-top:20px}
+.campos-sesion{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.campos-sesion label{display:grid;gap:8px;font-size:14px}
+.mensajes-grid{display:grid;grid-template-columns:minmax(230px,.9fr) minmax(0,2.1fr);gap:18px}
+.mensajes-grid>.panel{min-height:585px}.conversacion-contacto{background:#eee7ff;padding:16px;border-radius:10px;margin-top:20px}.contacto{display:flex;align-items:center;gap:10px;margin-bottom:12px}.contacto .avatar{width:38px;height:38px;font-size:14px;background:#5b39d6;flex-shrink:0}.contacto strong{font-size:16px}.contacto p{font-size:13px;margin:3px 0}.conversacion-contacto a{font-size:13px;font-weight:600}
+.chat-vista h2{font-size:22px;margin-top:14px}.chat-vista>p{font-size:15px}.chat-vista details{margin-top:32px}.chat-burbuja{max-width:85%;padding:16px;border-radius:14px 14px 14px 2px;background:#f2eefb;margin:20px 0;font-size:14px}.chat-burbuja.propia{margin-left:auto;background:#e8e1ff;border-radius:14px 14px 2px 14px}.chat-burbuja small{display:block;color:#77708b;font-size:12px;margin-top:8px}
+.guia-fila{display:flex;justify-content:space-between;align-items:center;gap:22px;border-top:1px solid var(--borde);padding:18px 0}.guia-fila h3{font-size:16px}.guia-fila p{font-size:14px;margin:5px 0 0}.guia-fila .boton{min-width:88px;flex-shrink:0}.vista-simple .panel:target{border-color:#b9afff}
+@media(max-width:1100px){.semana-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.mensajes-grid{grid-template-columns:1fr}.mensajes-grid>.panel{min-height:0}.chat-vista{min-height:320px!important}}
+@media(max-width:700px){.semana-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dia-calendario{min-height:165px}.calendario-cabecera{align-items:flex-start;flex-direction:column}.calendario-aviso{padding:18px}.calendario-aviso p{margin-top:20px}.campos-sesion{grid-template-columns:1fr}.guia-fila{gap:12px;align-items:flex-start}.guia-fila .boton{min-width:64px;padding:8px 12px}.guia-fila h3{font-size:15px}.guia-fila p{font-size:13px}.mensajes-grid{gap:16px}.chat-burbuja{max-width:95%}}

@@ -1,0 +1,53 @@
+/* Menú superior de Estudiante y Tutor */
+.encabezado-panel .menu-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px clamp(12px, 3vw, 36px);
+    background: #fff;
+    border-bottom: 1px solid #e8e3fa;
+}
+
+.menu-panel button {
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.menu-panel button:hover,
+.menu-panel button[aria-current="page"] {
+    background: #eee9ff;
+    color: #5037bf;
+}
+
+.menu-panel button:focus-visible {
+    outline: 2px solid #604df5;
+    outline-offset: 2px;
+}
+
+/* El panel ocupa todo el ancho */
+body[data-perfil] > .estructura {
+    display: block;
+    width: 100%;
+}
+
+.estructura > .panel-inicio {
+    min-width: 0;
+}
+
+/* En celular, el menú se desliza hacia los lados */
+@media (max-width: 640px) {
+    .encabezado-panel .menu-panel {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .menu-panel button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+}

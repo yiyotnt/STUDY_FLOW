@@ -1,0 +1,36 @@
+/* Pantallas del tutor: estructura de escritorio basada en los mockups. */
+body.tutor-vista{background:#fbfbfd;color:#202c49;--violeta:#6255f6;--tinta:#17275f;--muted:#55586a}
+.tutor-vista .estructura-estudiante{grid-template-columns:228px minmax(0,1fr)}
+.tutor-vista main{padding:36px 34px 64px}
+.tutor-vista aside{background:#f7f5ff;padding:24px 12px}
+.tutor-vista aside a{padding:14px 12px;font-size:16px;gap:16px}
+.tutor-vista h1{color:#17275f;font-size:36px;margin:8px 0 12px}
+.tutor-vista h2{color:#17275f;font-size:21px}
+.tutor-vista .cabecera{margin-bottom:28px}
+.tutor-vista .panel{border-radius:14px}
+.tutor-vista .subtitulo{font-size:16px}
+.indicadores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0 0 26px}
+.indicador{padding:18px;background:#fff;border:1px solid var(--borde);border-radius:13px}
+.indicador h2{font-size:14px;color:#55586a;margin:0 0 6px}
+.indicador strong{font-size:30px;line-height:1.2;color:#17275f}
+.indicador.alto strong{color:#b42318}.indicador.medio strong{color:#a44708}.indicador.bajo strong{color:#00834b}
+.barra-filtros{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0}
+.barra-filtros label{font-size:14px}.barra-filtros select{font-size:14px}
+.contador{margin-left:auto;font-size:13px;color:#55586a}
+.tabla-contenedor{overflow-x:auto}
+.tabla-estudiantes{border-collapse:collapse;width:100%;text-align:left;font-size:14px}
+.tabla-estudiantes th{background:#f7f7fc;color:#55586a;font-size:11px;letter-spacing:.02em;padding:14px 12px;white-space:nowrap}
+.tabla-estudiantes td{padding:17px 12px;border-bottom:1px solid var(--borde);vertical-align:middle}
+.persona{display:flex;align-items:center;gap:12px;min-width:210px}.persona strong{display:block;font-size:14px}.persona p{font-size:12px;margin:2px 0 0}
+.iniciales{display:grid;place-items:center;flex-shrink:0;width:36px;height:36px;background:#f0ecff;color:#6255f6;border-radius:50%;font-size:12px;font-weight:700}
+.avance{width:140px}.avance strong{font-size:14px}.avance progress{height:5px;margin:6px 0 0}
+.riesgo{display:inline-block;min-width:78px;text-align:center;border-radius:30px;padding:5px 12px;font-size:12px;font-weight:700;background:#e4f7ee;color:#00834b}.riesgo.alto{background:#ffebeb;color:#b42318}.riesgo.medio{background:#fff1db;color:#a44708}
+.pestanas{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 30px}.pestanas a{font-size:14px;padding:10px 14px;border:1px solid var(--borde);background:#fff;border-radius:8px;color:#55586a;font-weight:600}.pestanas a.activa{background:#eeebff;color:#6255f6}
+.panel-titulo{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:26px}.panel-titulo p{font-size:14px}
+.tabla-horarios{width:100%;border-collapse:collapse;text-align:left;font-size:15px}.tabla-horarios th{background:#f7f7fc;padding:14px;font-size:12px;color:#55586a}.tabla-horarios td{border-bottom:1px solid var(--borde);padding:20px 14px}.tabla-horarios td:last-child{text-align:right}
+.nota-tutor{margin-top:22px;font-size:14px;color:#55586a}.seccion-tutor{margin-top:28px;scroll-margin-top:24px}.seccion-tutor:target{border-color:#b9afff}
+.tutor-vista details{border-top:1px solid var(--borde);padding:16px 0}.tutor-vista summary{cursor:pointer;color:#17275f;font-weight:600}.tutor-vista details p{font-size:14px;margin-top:10px}.tutor-vista .fila{gap:20px}
+.temas{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 24px}.tema{background:#f2eeff;color:#6255f6;border-radius:24px;padding:7px 14px;font-size:13px}.biblioteca-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.material{border:1px solid var(--borde);border-radius:12px;padding:22px;background:white}.material h3{color:#17275f;margin:12px 0 6px}.material p{font-size:14px;margin-bottom:18px}.material-icono{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#eeeaff;color:#6255f6;font-size:24px}
+.tutor-vista [hidden]{display:none}
+@media(max-width:1100px){.tutor-vista .estructura-estudiante{grid-template-columns:210px minmax(0,1fr)}.indicadores{grid-template-columns:1fr 1fr}.tutor-vista main{padding:28px 24px}.biblioteca-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.tutor-vista .estructura-estudiante{grid-template-columns:1fr}.tutor-vista aside{padding:8px}.tutor-vista aside a{font-size:14px;padding:10px;gap:8px}.tutor-vista main{padding:24px 16px 40px}.tutor-vista h1{font-size:30px}.indicadores{gap:10px}.indicador{padding:16px}.indicador strong{font-size:26px}.panel-titulo{align-items:flex-start;flex-direction:column}.contador{margin-left:0}.tabla-horarios{font-size:13px}.tabla-horarios td,.tabla-horarios th{padding:14px 8px}.tabla-estudiantes{min-width:720px}.tutor-vista .cabecera{margin-bottom:24px}.pestanas{gap:8px}.pestanas a{font-size:13px}.biblioteca-grid{gap:14px}}
