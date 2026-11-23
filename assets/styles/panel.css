@@ -39,7 +39,6 @@ body[data-perfil] [hidden] { display: none; }
     .barra { flex-wrap: wrap; padding: 12px; gap: 10px; }
     .buscar { order: 1; width: 100%; }
 }
-/* Pie de página */
 
 .sf-footer {
  padding: 32px clamp(20px, 5vw, 64px) 18px;
@@ -336,3 +335,1005 @@ body[data-perfil] [hidden] { display: none; }
     }
 }
 
+.sf-tareas {
+    padding: 10px 0 32px;
+}
+
+.sf-tareas-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.sf-tareas-cabecera h1,
+.sf-tareas > h1 {
+    margin: 6px 0;
+    color: #211c43;
+}
+
+.sf-tareas small {
+    color: #604df5;
+    font-weight: 700;
+}
+
+.sf-tareas p {
+    color: #5c5570;
+}
+
+.sf-tareas-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.panel-inicio .sf-tareas-acciones button,
+.panel-inicio #sf-cambiar-estado-tarea {
+    background: #604df5;
+    color: white;
+    border: 1px solid #604df5;
+    border-radius: 7px;
+    padding: 10px 13px;
+    cursor: pointer;
+}
+
+.panel-inicio .sf-tareas-acciones .sf-boton-secundario {
+    background: #ffffff;
+    color: #604df5;
+    border-color: #e7e2fa;
+}
+
+/* Dos columnas: actividades y detalle */
+.sf-tareas-columnas {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr);
+    gap: 14px;
+    align-items: start;
+}
+
+.sf-tareas-tarjeta {
+    background: white;
+    border: 1px solid #e9e5f3;
+    border-radius: 12px;
+    padding: 18px;
+    min-width: 0;
+}
+
+.sf-tareas-tarjeta h2 {
+    font-size: 17px;
+    margin: 0 0 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeaf7;
+    color: #211c43;
+}
+
+.sf-tareas-tarjeta h3 {
+    font-size: 15px;
+    margin: 16px 0 8px;
+    color: #211c43;
+}
+
+.panel-inicio .sf-tarea-fila {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 12px;
+    padding: 12px 8px;
+    background: white;
+    color: #211c43;
+    border: 0;
+    border-top: 1px solid #eeeaf7;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.panel-inicio .sf-tarea-fila:hover,
+.panel-inicio .sf-tarea-fila.seleccionada {
+    background: #f3efff;
+    color: #211c43;
+}
+
+.sf-tarea-texto {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+}
+
+.sf-tarea-nombre {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.sf-tarea-subtitulo {
+    color: #68617b !important;
+    font-size: 12px;
+    font-weight: 400 !important;
+}
+
+.sf-tarea-prioridad {
+    color: #604df5;
+    background: #eee9ff;
+    padding: 5px 9px;
+    font-size: 12px;
+    border-radius: 25px;
+    white-space: nowrap;
+}
+
+.sf-tarea-prioridad[data-prioridad="Completada"] {
+    color: #226342;
+    background: #e9f7ee;
+}
+
+.sf-aviso-tareas {
+    background: #ede7ff;
+    color: #4930c5 !important;
+    border-radius: 7px;
+    padding: 11px 13px;
+    margin: 0 0 14px !important;
+}
+
+/* Formularios */
+.sf-form-tarea {
+    max-width: 620px;
+    display: grid;
+    gap: 9px;
+}
+
+.sf-form-tarea > label:not(.sf-opcion-orden) {
+    font-weight: 600;
+    color: #211c43;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.sf-form-tarea input:not([type="radio"]),
+.sf-form-tarea select {
+    width: 100%;
+    box-sizing: border-box;
+    background: #f8f7fb;
+    border: 1px solid #e9e5f3;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font: inherit;
+    color: #211c43;
+}
+
+.sf-form-tarea .sf-tareas-acciones {
+    margin-top: 12px;
+}
+
+.sf-opcion-orden {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eeeaf7;
+    padding: 12px 0;
+}
+
+.sf-tareas button:focus-visible,
+.sf-tareas input:focus-visible,
+.sf-tareas select:focus-visible {
+    outline: 2px solid #604df5;
+    outline-offset: 2px;
+}
+
+@media (max-width: 950px) {
+    .sf-tareas-columnas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .sf-tareas-cabecera {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .sf-tareas-tarjeta {
+        padding: 14px;
+    }
+}
+
+
+.sf-calendarios {
+    padding: 10px 0 32px;
+}
+
+.sf-calendarios[hidden] {
+    display: none !important;
+}
+
+/* Encabezado */
+
+.sf-cal-cabecera {
+    margin-bottom: 18px;
+}
+
+.sf-cal-cabecera small {
+    display: block;
+    color: #604df5;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.sf-cal-cabecera h1 {
+    color: #211c43;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.sf-cal-cabecera p {
+    color: #6a647e;
+    font-size: 14px;
+    margin: 0 0 20px;
+}
+
+
+.sf-cal-acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.panel-inicio .sf-cal-acciones button {
+    background: #604df5;
+    color: #ffffff;
+    border: 1px solid #604df5;
+    border-radius: 7px;
+    padding: 12px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.panel-inicio .sf-cal-acciones button:hover {
+    background: #4c36d7;
+}
+
+.panel-inicio .sf-cal-acciones .sf-cal-secundario {
+    background: #ffffff;
+    color: #604df5;
+    border: 1px solid #e8e4f5;
+}
+
+.panel-inicio .sf-cal-acciones .sf-cal-secundario:hover {
+    background: #f1edff;
+}
+
+
+.sf-cal-tarjeta {
+    background: #ffffff;
+    border: 1px solid #e9e5f3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 14px;
+    min-width: 0;
+}
+
+
+.sf-cal-alerta {
+    min-height: 125px;
+}
+
+.sf-cal-alerta p {
+    color: #211c43;
+    font-size: 13px;
+    margin: 0;
+}
+
+.sf-cal-alerta strong {
+    font-weight: 700;
+}
+
+.sf-cal-alerta hr {
+    border: 0;
+    border-top: 1px solid #e9e5f3;
+    margin: 28px 0 14px;
+}
+
+
+.sf-cal-titulo-semana {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.sf-cal-titulo-semana h2 {
+    color: #211c43;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.sf-cal-titulo-semana small {
+    color: #6a647e;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+.sf-cal-semana {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+
+.sf-cal-dia {
+    background: #f9f8fc;
+    border: 1px solid #ebe7f4;
+    border-radius: 8px;
+    padding: 10px 6px;
+    min-height: 140px;
+    min-width: 0;
+}
+
+.sf-cal-dia h3 {
+    color: #211c43;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+
+.sf-cal-evento {
+    border-radius: 4px;
+    padding: 7px 5px;
+    margin-bottom: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #211c43;
+    overflow-wrap: anywhere;
+}
+
+.sf-cal-clase {
+    background: #e6efff;
+}
+
+
+.sf-cal-estudio {
+    background: #eee8ff;
+}
+
+.sf-cal-evaluacion {
+    background: #fff0e8;
+}
+
+
+.sf-cal-entrega {
+    background: #fff0e8;
+}
+
+@media (max-width: 950px) {
+
+    .sf-cal-semana {
+        grid-template-columns: repeat(7, minmax(95px, 1fr));
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .sf-cal-dia {
+        min-height: 135px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .sf-cal-cabecera h1 {
+        font-size: 23px;
+    }
+
+    .sf-cal-tarjeta {
+        padding: 14px;
+    }
+
+    .sf-cal-acciones {
+        gap: 8px;
+    }
+
+    .panel-inicio .sf-cal-acciones button {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+}
+
+.sf-cal-botones-form {
+    margin-bottom: 20px;
+}
+
+
+.sf-cal-formulario {
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e9e5f3;
+    border-radius: 12px;
+}
+
+
+.sf-cal-formulario .sf-cal-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e9e5f3;
+}
+
+
+.sf-cal-formulario .sf-cal-campo:first-child {
+    padding-top: 0;
+}
+
+
+.sf-cal-formulario .sf-cal-campo:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+.sf-cal-formulario .sf-cal-campo label {
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.sf-cal-formulario .sf-cal-campo input,
+.sf-cal-formulario .sf-cal-campo select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    background: #f9f8fc;
+    color: #5c5570;
+    border: 1px solid #e9e5f3;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+
+.sf-cal-formulario .sf-cal-campo input:focus,
+.sf-cal-formulario .sf-cal-campo select:focus {
+    outline: 2px solid #604df5;
+    outline-offset: 1px;
+}
+
+
+#sf-cal-form-programar .sf-cal-acciones {
+    justify-content: flex-start;
+}
+
+
+@media (max-width: 600px) {
+
+    .sf-cal-formulario {
+        padding: 14px;
+    }
+
+    .sf-cal-formulario .sf-cal-campo {
+        padding: 12px 0;
+    }
+
+    .sf-cal-botones-form {
+        margin-bottom: 14px;
+    }
+}
+
+
+#sf-cal-vista-sesion .sf-cal-tarjeta,
+#sf-cal-vista-editar .sf-cal-tarjeta,
+#sf-cal-vista-conflicto .sf-cal-tarjeta,
+#sf-cal-vista-actualizada .sf-cal-tarjeta,
+#sf-cal-vista-eliminar .sf-cal-tarjeta,
+#sf-cal-vista-eliminada .sf-cal-tarjeta {
+    background: #ffffff;
+    border: 1px solid #e9e5f3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+
+#sf-cal-vista-sesion .sf-cal-tarjeta > h3,
+#sf-cal-vista-actualizada .sf-cal-tarjeta > h3,
+#sf-cal-vista-eliminar .sf-cal-tarjeta > h3 {
+    color: #211c43;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+#sf-cal-sesion-info,
+#sf-cal-actualizada-info,
+#sf-cal-eliminar-descripcion {
+    color: #6a647e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+#sf-cal-form-editar .sf-cal-botones-form {
+    margin-bottom: 20px;
+}
+
+#sf-cal-vista-editar .sf-cal-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e9e5f3;
+}
+
+#sf-cal-vista-editar .sf-cal-campo:first-child {
+    padding-top: 0;
+}
+
+#sf-cal-vista-editar .sf-cal-campo:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#sf-cal-vista-editar .sf-cal-campo label {
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#sf-cal-vista-editar .sf-cal-campo input,
+#sf-cal-vista-editar .sf-cal-campo select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    background: #f9f8fc;
+    border: 1px solid #e9e5f3;
+    border-radius: 6px;
+    color: #5c5570;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+#sf-cal-vista-editar .sf-cal-campo input:focus,
+#sf-cal-vista-editar .sf-cal-campo select:focus {
+    outline: 2px solid #604df5;
+    outline-offset: 1px;
+}
+
+
+.sf-cal-conflicto h3 {
+    color: #ad3b16;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.sf-cal-conflicto p {
+    color: #6a647e;
+    font-size: 13px;
+    margin: 0;
+}
+
+.sf-cal-conflicto hr {
+    border: none;
+    border-top: 1px solid #e9e5f3;
+    margin: 14px 0;
+}
+
+
+#sf-cal-vista-eliminar .sf-cal-tarjeta p {
+    color: #6a647e;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+#sf-cal-semana-programada,
+#sf-cal-semana-actualizada,
+#sf-cal-semana-eliminada {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+
+#sf-cal-semana-programada .sf-cal-semana,
+#sf-cal-semana-actualizada .sf-cal-semana,
+#sf-cal-semana-eliminada .sf-cal-semana {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+
+@media (max-width: 950px) {
+
+    #sf-cal-semana-programada .sf-cal-semana,
+    #sf-cal-semana-actualizada .sf-cal-semana,
+    #sf-cal-semana-eliminada .sf-cal-semana {
+        min-width: 700px;
+        grid-template-columns: repeat(7, minmax(95px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+
+    #sf-cal-vista-sesion .sf-cal-tarjeta,
+    #sf-cal-vista-editar .sf-cal-tarjeta,
+    #sf-cal-vista-conflicto .sf-cal-tarjeta,
+    #sf-cal-vista-actualizada .sf-cal-tarjeta,
+    #sf-cal-vista-eliminar .sf-cal-tarjeta,
+    #sf-cal-vista-eliminada .sf-cal-tarjeta {
+        padding: 14px;
+    }
+
+    #sf-cal-form-editar .sf-cal-botones-form {
+        margin-bottom: 14px;
+    }
+}
+
+
+#sf-cal-vista-simular .sf-cal-tarjeta,
+#sf-cal-vista-comparar .sf-cal-tarjeta,
+#sf-cal-vista-simulacion-aplicada .sf-cal-tarjeta,
+#sf-cal-vista-simulacion-descartada .sf-cal-tarjeta {
+    background: #ffffff;
+    border: 1px solid #e9e5f3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+
+#sf-cal-vista-simular .sf-cal-tarjeta h3,
+#sf-cal-vista-comparar .sf-cal-tarjeta h3 {
+    color: #211c43;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.sf-cal-simulacion-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #e9e5f3;
+}
+
+.sf-cal-simulacion-item:first-child {
+    padding-top: 0;
+}
+
+.sf-cal-simulacion-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sf-cal-simulacion-item strong {
+    display: block;
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.sf-cal-simulacion-item p {
+    color: #6a647e;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.sf-cal-form-simulacion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sf-cal-form-simulacion .sf-cal-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e9e5f3;
+}
+
+.sf-cal-form-simulacion .sf-cal-campo:first-child {
+    padding-top: 0;
+}
+
+.sf-cal-form-simulacion .sf-cal-campo label {
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sf-cal-form-simulacion .sf-cal-campo input,
+.sf-cal-form-simulacion .sf-cal-campo select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f9f8fc;
+    color: #5c5570;
+    border: 1px solid #e9e5f3;
+    border-radius: 6px;
+    padding: 9px 10px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.sf-cal-form-simulacion .sf-cal-campo input:focus,
+.sf-cal-form-simulacion .sf-cal-campo select:focus {
+    outline: 2px solid #604df5;
+    outline-offset: 1px;
+}
+
+.sf-cal-form-simulacion .sf-cal-acciones {
+    margin-top: 16px;
+}
+
+
+.sf-cal-comparacion-item {
+    padding: 13px 0;
+    border-bottom: 1px solid #e9e5f3;
+}
+
+.sf-cal-comparacion-item:first-child {
+    padding-top: 0;
+}
+
+.sf-cal-comparacion-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sf-cal-comparacion-item strong {
+    display: block;
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.sf-cal-comparacion-item p {
+    color: #6a647e;
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#sf-cal-resumen-aplicada {
+    width: 100%;
+}
+
+#sf-cal-vista-simulacion-aplicada .sf-cal-titulo-semana,
+#sf-cal-vista-simulacion-descartada .sf-cal-titulo-semana {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+
+#sf-cal-semana-simulada,
+#sf-cal-semana-descartada {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+#sf-cal-semana-simulada .sf-cal-semana,
+#sf-cal-semana-descartada .sf-cal-semana {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+@media (max-width: 950px) {
+
+    #sf-cal-semana-simulada .sf-cal-semana,
+    #sf-cal-semana-descartada .sf-cal-semana {
+        min-width: 700px;
+        grid-template-columns: repeat(7, minmax(95px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+
+    #sf-cal-vista-simular .sf-cal-tarjeta,
+    #sf-cal-vista-comparar .sf-cal-tarjeta,
+    #sf-cal-vista-simulacion-aplicada .sf-cal-tarjeta,
+    #sf-cal-vista-simulacion-descartada .sf-cal-tarjeta {
+        padding: 14px;
+    }
+
+    .sf-cal-form-simulacion .sf-cal-campo {
+        padding: 12px 0;
+    }
+
+    .sf-cal-comparacion-item,
+    .sf-cal-simulacion-item {
+        padding: 11px 0;
+    }
+}
+
+#sf-cal-vista-preparar-concentracion .sf-cal-tarjeta,
+#sf-cal-vista-concentracion-curso .sf-cal-tarjeta,
+#sf-cal-vista-concentracion-finalizada .sf-cal-tarjeta {
+    background: #ffffff;
+    border: 1px solid #e9e5f3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+/* Títulos de las tarjetas */
+
+#sf-cal-vista-concentracion-curso .sf-cal-tarjeta h3,
+#sf-cal-vista-concentracion-finalizada .sf-cal-tarjeta h3 {
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+
+.sf-cal-opciones-duracion {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+
+.sf-cal-opciones-duracion legend {
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+
+.sf-cal-grupo-duracion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.sf-cal-grupo-duracion label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #5c5570;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+
+.sf-cal-grupo-duracion input[type="radio"] {
+    accent-color: #604df5;
+    cursor: pointer;
+}
+
+
+#sf-cal-personalizar-duracion {
+    margin-top: 18px;
+}
+
+#sf-cal-personalizar-duracion[hidden] {
+    display: none !important;
+}
+
+#sf-cal-personalizar-duracion label {
+    display: block;
+    color: #211c43;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+#sf-cal-minutos-personalizados {
+    width: 100%;
+    max-width: 220px;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    background: #f9f8fc;
+    color: #211c43;
+    border: 1px solid #e9e5f3;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+#sf-cal-minutos-personalizados:focus {
+    outline: 2px solid #604df5;
+    outline-offset: 1px;
+}
+
+
+#sf-cal-tiempo-resumen {
+    color: #6a647e;
+    font-size: 13px;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+}
+
+
+.sf-cal-tarjeta-temporizador {
+    padding-top: 22px !important;
+    padding-bottom: 24px !important;
+}
+
+
+.sf-cal-tarjeta-temporizador h3 {
+    color: #604df5 !important;
+    margin-bottom: 12px !important;
+}
+
+
+#sf-cal-temporizador {
+    color: #211c43;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    font-variant-numeric: tabular-nums;
+}
+
+#sf-cal-sesion-registrada {
+    color: #6a647e;
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+.sf-cal-tarjeta-resultado h3 {
+    color: #604df5 !important;
+    margin-bottom: 12px !important;
+}
+
+
+#sf-cal-minutos-registrados {
+    color: #211c43;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+
+    #sf-cal-vista-preparar-concentracion .sf-cal-tarjeta,
+    #sf-cal-vista-concentracion-curso .sf-cal-tarjeta,
+    #sf-cal-vista-concentracion-finalizada .sf-cal-tarjeta {
+        padding: 14px;
+    }
+
+    .sf-cal-grupo-duracion {
+        gap: 12px;
+    }
+
+    #sf-cal-temporizador {
+        font-size: 42px;
+    }
+
+    #sf-cal-minutos-registrados {
+        font-size: 38px;
+    }
+}

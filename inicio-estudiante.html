@@ -135,6 +135,1373 @@
 
 </section>
 
+<section id="sf-vista-tareas" class="sf-tareas" hidden>
+
+    <div class="sf-tareas-cabecera">
+        <div>
+            <small>PENDIENTES</small>
+            <h1>Tareas</h1>
+            <p>Organiza tus entregas y evaluaciones por fecha o prioridad.</p>
+        </div>
+
+        <div class="sf-tareas-acciones">
+            <button type="button" id="sf-boton-ordenar-tareas"
+                    class="sf-boton-secundario">
+                Ordenar actividades
+            </button>
+            <button type="button" id="sf-boton-nueva-tarea">
+                Nueva tarea
+            </button>
+        </div>
+    </div>
+
+    <p id="sf-aviso-tareas" class="sf-aviso-tareas"
+       role="status" hidden></p>
+
+    <div class="sf-tareas-columnas">
+
+        <section class="sf-tareas-tarjeta">
+            <h2>Actividades académicas</h2>
+
+            <div id="sf-lista-tareas">
+                <!-- Aquí aparecerán las actividades -->
+            </div>
+        </section>
+
+        <section id="sf-detalle-tarea" class="sf-tareas-tarjeta">
+            <h2>Detalle de actividad</h2>
+
+            <h3 id="sf-detalle-titulo"></h3>
+            <p id="sf-detalle-info"></p>
+            <p id="sf-detalle-fecha"></p>
+
+            <button type="button" id="sf-cambiar-estado-tarea">
+                Marcar como completada
+            </button>
+        </section>
+
+    </div>
+</section>
+
+<section id="sf-vista-nueva-tarea" class="sf-tareas" hidden>
+
+    <small>HU06 / ESPACIO ESTUDIANTE</small>
+    <h1>Nueva actividad</h1>
+    <p>Registra una tarea o evaluación para uno de tus cursos.</p>
+
+    <form id="sf-form-nueva-tarea" class="sf-tareas-tarjeta sf-form-tarea">
+
+        <h2>Datos de la actividad</h2>
+
+        <label for="sf-tarea-curso">Curso</label>
+        <select id="sf-tarea-curso" required>
+            <option>Base de Datos</option>
+            <option>Programación I</option>
+            <option>Comunicación</option>
+            <option>Cálculo I</option>
+        </select>
+
+        <label for="sf-tarea-tipo">Tipo de actividad</label>
+        <select id="sf-tarea-tipo" required>
+            <option>Tarea</option>
+            <option>Evaluación</option>
+        </select>
+
+        <label for="sf-tarea-titulo">Título</label>
+        <input type="text" id="sf-tarea-titulo"
+               placeholder="Ejemplo: Práctica de normalización"
+               maxlength="100" required>
+
+        <label for="sf-tarea-fecha">Fecha límite</label>
+        <input type="date" id="sf-tarea-fecha" required>
+
+        <label for="sf-tarea-hora">Hora de entrega</label>
+        <input type="time" id="sf-tarea-hora"
+               value="23:59" required>
+
+        <label for="sf-tarea-prioridad">Prioridad</label>
+        <select id="sf-tarea-prioridad">
+            <option>Alta</option>
+            <option selected>Media</option>
+            <option>Baja</option>
+        </select>
+
+        <div class="sf-tareas-acciones">
+            <button type="button" id="sf-cancelar-nueva-tarea"
+                    class="sf-boton-secundario">
+                Cancelar
+            </button>
+
+            <button type="submit">Guardar actividad</button>
+        </div>
+
+    </form>
+</section>
+
+<section id="sf-vista-orden-tareas" class="sf-tareas" hidden>
+
+    <small>HU07 / ESPACIO ESTUDIANTE</small>
+    <h1>Tareas y evaluaciones</h1>
+    <p>Ordena las actividades según su fecha de entrega o prioridad.</p>
+
+    <form id="sf-form-ordenar-tareas"
+          class="sf-tareas-tarjeta sf-form-tarea">
+
+        <h2>Ordenar por</h2>
+
+        <label class="sf-opcion-orden">
+            <input type="radio" name="orden"
+                   value="prioridad" checked>
+            Mayor prioridad (alta a baja)
+        </label>
+
+        <label class="sf-opcion-orden">
+            <input type="radio" name="orden" value="fecha">
+            Fecha de entrega (más cercana)
+        </label>
+
+        <label class="sf-opcion-orden">
+            <input type="radio" name="orden" value="original">
+            Orden original
+        </label>
+
+        <div class="sf-tareas-acciones">
+            <button type="button" id="sf-cancelar-orden-tareas"
+                    class="sf-boton-secundario">
+                Cancelar
+            </button>
+            <button type="submit">Aplicar orden</button>
+        </div>
+    </form>
+</section>
+
+<template id="sf-plantilla-tarea">
+    <button type="button" class="sf-tarea-fila">
+        <span class="sf-tarea-texto">
+            <strong class="sf-tarea-nombre"></strong>
+            <small class="sf-tarea-subtitulo"></small>
+        </span>
+        <span class="sf-tarea-prioridad"></span>
+    </button>
+</template>
+
+<section id="sf-vista-calendarios" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU08 · HU21 · HU33 · HU42</small>
+
+        <h1>Inicio de Calendarios</h1>
+
+        <p>Semana del 9 al 15 de noviembre</p>
+
+        <div class="sf-cal-acciones">
+            <button type="button" id="sf-cal-programar">
+                Programar sesión
+            </button>
+
+            <button type="button" id="sf-cal-simular"
+                    class="sf-cal-secundario">
+                Simular semana
+            </button>
+
+            <button type="button" id="sf-cal-carga"
+                    class="sf-cal-secundario">
+                Ver carga académica
+            </button>
+
+            <button type="button" id="sf-cal-concentracion"
+                    class="sf-cal-secundario">
+                Iniciar concentración
+            </button>
+        </div>
+
+    </div>
+
+    
+    <section class="sf-cal-tarjeta sf-cal-alerta">
+
+        <p>
+            <strong>
+                Carga alta · 11 compromisos frente a tu límite de 10
+            </strong>
+        </p>
+
+        <hr>
+
+        <p>
+            <strong>
+                Miércoles y jueves concentran más actividades ·
+                Revisar sugerencia
+            </strong>
+        </p>
+
+    </section>
+
+    
+    <section class="sf-cal-tarjeta">
+
+        <div class="sf-cal-titulo-semana">
+            <h2>Planificación semanal</h2>
+
+            <small>Clase · Estudio · Evaluación / entrega</small>
+        </div>
+
+        <div class="sf-cal-semana">
+
+            <!-- LUNES -->
+            <div class="sf-cal-dia">
+                <h3>Lun 9</h3>
+
+                <div class="sf-cal-evento sf-cal-clase">
+                    Clase · 09:00
+                </div>
+            </div>
+
+            <!-- MARTES -->
+            <div class="sf-cal-dia">
+                <h3>Mar 10</h3>
+
+                <div class="sf-cal-evento sf-cal-clase">
+                    Clase · 11:00
+                </div>
+            </div>
+
+            <!-- MIÉRCOLES -->
+            <div class="sf-cal-dia">
+                <h3>Mié 11</h3>
+
+                <div class="sf-cal-evento sf-cal-clase">
+                    Clase · 09:00
+                </div>
+
+                <div class="sf-cal-evento sf-cal-evaluacion">
+                    Evaluación · 12:00
+                </div>
+
+                <div class="sf-cal-evento sf-cal-estudio">
+                    Estudio · 16:00
+                </div>
+            </div>
+
+            <!-- JUEVES -->
+            <div class="sf-cal-dia">
+                <h3>Jue 12</h3>
+
+                <div class="sf-cal-evento sf-cal-clase">
+                    Clase · 11:00
+                </div>
+
+                <div class="sf-cal-evento sf-cal-evaluacion">
+                    Evaluación · 15:00
+                </div>
+
+                <div class="sf-cal-evento sf-cal-estudio">
+                    Estudio · 17:00
+                </div>
+            </div>
+
+            <!-- VIERNES -->
+            <div class="sf-cal-dia">
+                <h3>Vie 13</h3>
+
+                <div class="sf-cal-evento sf-cal-entrega">
+                    Entrega · 20:00
+                </div>
+            </div>
+
+            <!-- SÁBADO -->
+            <div class="sf-cal-dia">
+                <h3>Sáb 14</h3>
+            </div>
+
+            <!-- DOMINGO -->
+            <div class="sf-cal-dia">
+                <h3>Dom 15</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+<section id="sf-cal-vista-programar" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+
+        <h1>Programar sesión</h1>
+
+        <p>Elige un espacio libre en tu semana</p>
+    </div>
+
+    <form id="sf-cal-form-programar">
+
+        <div class="sf-cal-acciones sf-cal-botones-form">
+            <button type="submit" id="sf-cal-guardar-sesion">
+                Guardar sesión
+            </button>
+
+            <button type="button"
+                    id="sf-cal-cancelar-programar"
+                    class="sf-cal-secundario">
+                Cancelar
+            </button>
+        </div>
+
+        <div class="sf-cal-tarjeta sf-cal-formulario">
+
+           
+            <div class="sf-cal-campo">
+                <label for="sf-cal-curso">
+                    Curso y actividad
+                </label>
+
+                <select id="sf-cal-curso" required>
+                    <option value="Repaso de normalización">
+                        Base de Datos · Repaso de normalización
+                    </option>
+
+                    <option value="Práctica de consultas SQL">
+                        Base de Datos · Práctica de consultas SQL
+                    </option>
+
+                    <option value="Laboratorio de arreglos">
+                        Programación I · Laboratorio de arreglos
+                    </option>
+
+                    <option value="Repaso de derivadas">
+                        Cálculo I · Repaso de derivadas
+                    </option>
+                </select>
+            </div>
+
+            
+            <div class="sf-cal-campo">
+                <label for="sf-cal-fecha">
+                    Fecha
+                </label>
+
+                <input type="date"
+                       id="sf-cal-fecha"
+                       required>
+            </div>
+
+            
+            <div class="sf-cal-campo">
+                <label for="sf-cal-hora">
+                    Hora de inicio
+                </label>
+
+                <input type="time"
+                       id="sf-cal-hora"
+                       value="15:00"
+                       required>
+            </div>
+
+           
+            <div class="sf-cal-campo">
+                <label for="sf-cal-duracion">
+                    Duración estimada
+                </label>
+
+                <select id="sf-cal-duracion" required>
+                    <option value="15">15 min</option>
+                    <option value="25">25 min</option>
+                    <option value="45">45 min</option>
+                    <option value="60" selected>60 min</option>
+                    <option value="90">90 min</option>
+                    <option value="120">120 min</option>
+                </select>
+            </div>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!-- ==========================================
+     CALENDARIOS - HU08
+     SESIÓN PROGRAMADA
+========================================== -->
+
+<section id="sf-cal-vista-sesion" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+        <h1>Sesión programada</h1>
+        <p>El repaso ya aparece en tu horario semanal</p>
+
+        <div class="sf-cal-acciones">
+            <button type="button" id="sf-cal-editar-sesion">
+                Editar sesión
+            </button>
+
+            <button type="button" id="sf-cal-ir-eliminar"
+                    class="sf-cal-secundario">
+                Eliminar sesión
+            </button>
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+        <h3 id="sf-cal-sesion-titulo">
+            Repaso de normalización
+        </h3>
+
+        <p id="sf-cal-sesion-info">
+            Martes 10 · 15:00–16:00 · Sesión de estudio
+        </p>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+        <div class="sf-cal-titulo-semana">
+            <h2>Planificación semanal</h2>
+            <small>Clase · Estudio · Evaluación / entrega</small>
+        </div>
+
+        <div id="sf-cal-semana-programada"></div>
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CALENDARIOS - HU08
+     EDITAR SESIÓN
+========================================== -->
+
+<section id="sf-cal-vista-editar" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+        <h1>Editar sesión</h1>
+
+        <p id="sf-cal-editar-descripcion">
+            Repaso de normalización · Base de Datos
+        </p>
+    </div>
+
+    <form id="sf-cal-form-editar">
+
+        <div class="sf-cal-acciones sf-cal-botones-form">
+
+            <button type="submit">
+                Guardar cambios
+            </button>
+
+            <button type="button" id="sf-cal-cancelar-edicion"
+                    class="sf-cal-secundario">
+                Cancelar
+            </button>
+
+        </div>
+
+        <div class="sf-cal-tarjeta sf-cal-formulario">
+
+            <div class="sf-cal-campo">
+                <label for="sf-cal-editar-fecha">
+                    Nueva fecha
+                </label>
+
+                <input type="date"
+                       id="sf-cal-editar-fecha"
+                       required>
+            </div>
+
+            <div class="sf-cal-campo">
+                <label for="sf-cal-editar-hora">
+                    Hora de inicio
+                </label>
+
+                <input type="time"
+                       id="sf-cal-editar-hora"
+                       required>
+            </div>
+
+            <div class="sf-cal-campo">
+                <label for="sf-cal-editar-duracion">
+                    Duración estimada
+                </label>
+
+                <select id="sf-cal-editar-duracion" required>
+                    <option value="15">15 min</option>
+                    <option value="25">25 min</option>
+                    <option value="45">45 min</option>
+                    <option value="60">60 min</option>
+                    <option value="90">90 min</option>
+                    <option value="120">120 min</option>
+                </select>
+            </div>
+
+        </div>
+    </form>
+
+</section>
+
+
+<!-- ==========================================
+     CALENDARIOS - HU08
+     CONFLICTO DE HORARIO
+========================================== -->
+
+<section id="sf-cal-vista-conflicto" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+        <h1>Conflicto de horario</h1>
+        <p>Revisa el horario antes de guardar</p>
+
+        <div class="sf-cal-acciones">
+            <button type="button" id="sf-cal-elegir-otro-horario">
+                Elegir otro horario
+            </button>
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta sf-cal-conflicto">
+
+        <h3>Horario elegido</h3>
+        <p id="sf-cal-conflicto-elegido">
+            Miércoles 11 · 09:30–10:30
+        </p>
+
+        <hr>
+
+        <h3>Se superpone con una clase</h3>
+        <p id="sf-cal-conflicto-ocupado">
+            Base de Datos · Miércoles 11 · 09:00–10:30
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CALENDARIOS - HU08
+     SESIÓN ACTUALIZADA
+========================================== -->
+
+<section id="sf-cal-vista-actualizada" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+        <h1>Sesión actualizada</h1>
+        <p>El nuevo horario aparece en la planificación semanal</p>
+
+        <div class="sf-cal-acciones">
+            <button type="button" class="sf-cal-volver-inicio">
+                Volver a Calendarios
+            </button>
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+        <h3 id="sf-cal-actualizada-titulo">
+            Repaso de normalización
+        </h3>
+
+        <p id="sf-cal-actualizada-info">
+            Miércoles 11 · 16:00–17:00
+        </p>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+        <div class="sf-cal-titulo-semana">
+            <h2>Planificación semanal</h2>
+            <small>Clase · Estudio · Evaluación / entrega</small>
+        </div>
+
+        <div id="sf-cal-semana-actualizada"></div>
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CALENDARIOS - HU08
+     ELIMINAR SESIÓN
+========================================== -->
+
+<section id="sf-cal-vista-eliminar" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+        <h1>Eliminar sesión</h1>
+
+        <p id="sf-cal-eliminar-descripcion">
+            Repaso de normalización · Miércoles 11, 16:00–17:00
+        </p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button" id="sf-cal-confirmar-eliminar">
+                Eliminar sesión
+            </button>
+
+            <button type="button" id="sf-cal-cancelar-eliminar"
+                    class="sf-cal-secundario">
+                Cancelar
+            </button>
+
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+        <h3>Quitar del calendario</h3>
+
+        <p>
+            Confirma si quieres eliminar esta sesión de estudio.
+        </p>
+    </div>
+
+</section>
+
+<section id="sf-cal-vista-eliminada" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU08</small>
+        <h1>Sesión eliminada</h1>
+
+        <p>La semana se actualizó tras eliminar la sesión</p>
+
+        <div class="sf-cal-acciones">
+            <button type="button" class="sf-cal-volver-inicio">
+                Volver a Calendarios
+            </button>
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+        <div class="sf-cal-titulo-semana">
+            <h2>Planificación semanal</h2>
+            <small>Clase · Estudio · Evaluación / entrega</small>
+        </div>
+
+        <div id="sf-cal-semana-eliminada"></div>
+    </div>
+
+</section>
+
+
+<!-- CALENDARIOS - HU42: SIMULAR SEMANA -->
+
+<section id="sf-cal-vista-simular" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU42</small>
+
+        <h1>Simular semana</h1>
+
+        <p>
+            Borrador temporal · Tu calendario actual sigue guardado
+        </p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button" id="sf-cal-comparar">
+                Comparar planificación
+            </button>
+
+            <button type="button"
+                    id="sf-cal-descartar"
+                    class="sf-cal-secundario">
+                Descartar simulación
+            </button>
+
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <h3>Actividades para reorganizar</h3>
+
+        <div id="sf-cal-lista-simulacion">
+
+            <div class="sf-cal-simulacion-item">
+                <strong>Repaso de normalización</strong>
+                <p>
+                    Mié 11, 16:00 → Vie 13, 15:00
+                </p>
+            </div>
+
+            <div class="sf-cal-simulacion-item">
+                <strong>Práctica de consultas SQL</strong>
+                <p>
+                    Jue 12, 17:00 → Sáb 14, 10:00
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <h3>Mover actividad</h3>
+
+        <p>
+            Selecciona otra fecha y hora para reorganizarla.
+        </p>
+
+        <form id="sf-cal-form-simulacion"
+              class="sf-cal-form-simulacion">
+
+            <div class="sf-cal-campo">
+                <label for="sf-cal-sim-actividad">
+                    Actividad
+                </label>
+
+                <select id="sf-cal-sim-actividad" required>
+                    <option value="normalizacion">
+                        Repaso de normalización
+                    </option>
+
+                    <option value="sql">
+                        Práctica de consultas SQL
+                    </option>
+                </select>
+            </div>
+
+            <div class="sf-cal-campo">
+                <label for="sf-cal-sim-fecha">
+                    Nueva fecha
+                </label>
+
+                <input type="date"
+                       id="sf-cal-sim-fecha"
+                       value="2026-11-13"
+                       required>
+            </div>
+
+            <div class="sf-cal-campo">
+                <label for="sf-cal-sim-hora">
+                    Nueva hora
+                </label>
+
+                <input type="time"
+                       id="sf-cal-sim-hora"
+                       value="15:00"
+                       required>
+            </div>
+
+            <div class="sf-cal-acciones">
+                <button type="submit">
+                    Simular cambio
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- CALENDARIOS - HU42: COMPARAR PLANIFICACIÓN -->
+
+<section id="sf-cal-vista-comparar" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU42</small>
+
+        <h1>Comparar planificación</h1>
+
+        <p>
+            Compara la distribución de estudio antes de decidir
+        </p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button" id="sf-cal-aplicar">
+                Aplicar simulación
+            </button>
+
+            <button type="button"
+                    id="sf-cal-descartar-comparacion"
+                    class="sf-cal-secundario">
+                Descartar simulación
+            </button>
+
+        </div>
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <div id="sf-cal-comparacion">
+
+            <div class="sf-cal-comparacion-item">
+                <strong>Miércoles 11</strong>
+                <p>Original: 120 min → Simulación: 60 min</p>
+            </div>
+
+            <div class="sf-cal-comparacion-item">
+                <strong>Jueves 12</strong>
+                <p>Original: 120 min → Simulación: 60 min</p>
+            </div>
+
+            <div class="sf-cal-comparacion-item">
+                <strong>Viernes 13</strong>
+                <p>Original: 0 min → Simulación: 60 min</p>
+            </div>
+
+            <div class="sf-cal-comparacion-item">
+                <strong>Sábado 14</strong>
+                <p>Original: 0 min → Simulación: 60 min</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CALENDARIOS - HU42: SIMULACIÓN APLICADA -->
+
+<section id="sf-cal-vista-simulacion-aplicada"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU42</small>
+
+        <h1>Simulación aplicada</h1>
+
+        <p>
+            Los cambios ya aparecen en tu calendario
+        </p>
+
+        <div class="sf-cal-acciones">
+            <button type="button"
+                    id="sf-cal-volver-aplicada">
+                Volver a Calendarios
+            </button>
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <div id="sf-cal-resumen-aplicada">
+
+            <div class="sf-cal-simulacion-item">
+                <strong>Repaso de normalización</strong>
+                <p>Viernes 13 · 15:00–16:00</p>
+            </div>
+
+            <div class="sf-cal-simulacion-item">
+                <strong>Práctica de consultas SQL</strong>
+                <p>Sábado 14 · 10:00–11:00</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <div class="sf-cal-titulo-semana">
+            <h2>Planificación semanal</h2>
+
+            <small>
+                Clase · Estudio · Evaluación / entrega
+            </small>
+        </div>
+
+        <div id="sf-cal-semana-simulada"></div>
+
+    </div>
+
+</section>
+
+
+<section id="sf-cal-vista-simulacion-descartada"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU42</small>
+
+        <h1>Simulación descartada</h1>
+
+        <p>Se mantiene la planificación original</p>
+
+        <div class="sf-cal-acciones">
+            <button type="button"
+                    id="sf-cal-volver-descartada">
+                Volver a Calendarios
+            </button>
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <div class="sf-cal-titulo-semana">
+            <h2>Planificación semanal</h2>
+
+            <small>
+                Clase · Estudio · Evaluación / entrega
+            </small>
+        </div>
+
+        <div id="sf-cal-semana-descartada"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     CALENDARIOS - HU33
+     CARGA ACADÉMICA
+====================================== -->
+
+<section id="sf-cal-vista-carga" class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU42 · HU33</small>
+
+        <h1>Carga académica</h1>
+
+        <p>Compara las responsabilidades de cada semana</p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button" id="sf-cal-revisar-sugerencias">
+                Revisar sugerencias
+            </button>
+
+            <button type="button"
+                    id="sf-cal-regresar-carga"
+                    class="sf-cal-secundario">
+                Volver a Calendarios
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <div class="sf-cal-carga-lista">
+
+            <!-- SEMANA 1 -->
+            <div class="sf-cal-carga-item">
+
+                <div class="sf-cal-carga-info">
+                    <strong>2–8 nov</strong>
+
+                    <p>
+                        2 tareas · 1 evaluación · 2 sesiones
+                    </p>
+                </div>
+
+                <div class="sf-cal-carga-indicador">
+
+                    <div class="sf-cal-carga-barra">
+                        <div class="sf-cal-carga-progreso"
+                             style="width: 45.45%;">
+                        </div>
+                    </div>
+
+                    <strong>5</strong>
+
+                </div>
+
+            </div>
+
+            <!-- SEMANA 2 -->
+            <div class="sf-cal-carga-item">
+
+                <div class="sf-cal-carga-info">
+                    <strong>9–15 nov · Mayor carga</strong>
+
+                    <p>
+                        3 tareas · 3 evaluaciones · 5 sesiones
+                    </p>
+                </div>
+
+                <div class="sf-cal-carga-indicador">
+
+                    <div class="sf-cal-carga-barra">
+                        <div class="sf-cal-carga-progreso sf-cal-carga-alta"
+                             style="width: 100%;">
+                        </div>
+                    </div>
+
+                    <strong>11</strong>
+
+                </div>
+
+            </div>
+
+            <!-- SEMANA 3 -->
+            <div class="sf-cal-carga-item">
+
+                <div class="sf-cal-carga-info">
+                    <strong>16–22 nov</strong>
+
+                    <p>
+                        2 tareas · 2 evaluaciones · 3 sesiones
+                    </p>
+                </div>
+
+                <div class="sf-cal-carga-indicador">
+
+                    <div class="sf-cal-carga-barra">
+                        <div class="sf-cal-carga-progreso"
+                             style="width: 63.64%;">
+                        </div>
+                    </div>
+
+                    <strong>7</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     CALENDARIOS - HU33
+     REDISTRIBUIR LA SEMANA
+====================================== -->
+
+<section id="sf-cal-vista-redistribuir"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU33</small>
+
+        <h1>Redistribuir la semana</h1>
+
+        <p>
+            11 compromisos · Límite configurado de 10
+        </p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button"
+                    id="sf-cal-confirmar-redistribucion">
+                Confirmar redistribución
+            </button>
+
+            <button type="button"
+                    id="sf-cal-cancelar-redistribucion"
+                    class="sf-cal-secundario">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <!-- DÍAS CON MAYOR CARGA -->
+        <div class="sf-cal-redistribucion-item">
+
+            <strong class="sf-cal-texto-advertencia">
+                Días más cargados
+            </strong>
+
+            <p>
+                Miércoles y jueves · 4 compromisos cada día
+            </p>
+
+        </div>
+
+        <!-- PRIMERA SUGERENCIA -->
+        <div class="sf-cal-redistribucion-item">
+
+            <strong class="sf-cal-texto-advertencia">
+                Repaso de normalización
+            </strong>
+
+            <p>
+                Mié 11, 16:00 → Vie 13, 15:00
+            </p>
+
+        </div>
+
+        <!-- SEGUNDA SUGERENCIA -->
+        <div class="sf-cal-redistribucion-item">
+
+            <strong class="sf-cal-texto-advertencia">
+                Práctica de consultas SQL
+            </strong>
+
+            <p>
+                Jue 12, 17:00 → Sáb 14, 10:00
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     CALENDARIOS - HU33
+     CARGA ACTUALIZADA
+====================================== -->
+
+<section id="sf-cal-vista-carga-actualizada"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU33 · HU42</small>
+
+        <h1>Carga actualizada</h1>
+
+        <p>
+            El total semanal sigue en 11 y la carga diaria
+            queda más repartida
+        </p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button"
+                    id="sf-cal-ver-calendario-actualizado">
+                Ver calendario actualizado
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <div class="sf-cal-redistribucion-item">
+
+            <strong>Miércoles</strong>
+
+            <p id="sf-cal-carga-miercoles">
+                4 → 3 compromisos
+            </p>
+
+        </div>
+
+        <div class="sf-cal-redistribucion-item">
+
+            <strong>Jueves</strong>
+
+            <p id="sf-cal-carga-jueves">
+                4 → 3 compromisos
+            </p>
+
+        </div>
+
+        <div class="sf-cal-redistribucion-item">
+
+            <strong>Viernes</strong>
+
+            <p id="sf-cal-carga-viernes">
+                1 → 2 compromisos
+            </p>
+
+        </div>
+
+        <div class="sf-cal-redistribucion-item">
+
+            <strong>Sábado</strong>
+
+            <p id="sf-cal-carga-sabado">
+                0 → 1 compromiso
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="sf-cal-vista-preparar-concentracion"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+        <small>CALENDARIOS / HU21</small>
+
+        <h1>Preparar concentración</h1>
+
+        <p>Repaso de normalización · Base de Datos</p>
+    </div>
+
+    <form id="sf-cal-form-concentracion">
+
+        <div class="sf-cal-acciones sf-cal-botones-form">
+
+            <button type="submit" id="sf-cal-iniciar-temporizador">
+                Iniciar temporizador
+            </button>
+
+            <button type="button"
+                    id="sf-cal-cancelar-concentracion"
+                    class="sf-cal-secundario">
+                Volver a Calendarios
+            </button>
+
+        </div>
+
+        <div class="sf-cal-tarjeta">
+
+            <fieldset class="sf-cal-opciones-duracion">
+
+                <legend>Duración</legend>
+
+                <div class="sf-cal-grupo-duracion">
+
+                    <label>
+                        <input type="radio"
+                               name="sf-cal-duracion"
+                               value="15">
+                        15 min
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="sf-cal-duracion"
+                               value="25"
+                               checked>
+                        25 min
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="sf-cal-duracion"
+                               value="45">
+                        45 min
+                    </label>
+
+                    <label>
+                        <input type="radio"
+                               name="sf-cal-duracion"
+                               value="personalizar">
+                        Personalizar
+                    </label>
+
+                </div>
+
+                <div id="sf-cal-personalizar-duracion" hidden>
+
+                    <label for="sf-cal-minutos-personalizados">
+                        Duración personalizada (minutos)
+                    </label>
+
+                    <input type="number"
+                           id="sf-cal-minutos-personalizados"
+                           min="1"
+                           max="180"
+                           placeholder="Ejemplo: 30"
+                           disabled>
+
+                </div>
+
+            </fieldset>
+
+        </div>
+
+    </form>
+
+</section>
+
+<section id="sf-cal-vista-concentracion-curso"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU21</small>
+
+        <h1>Concentración en curso</h1>
+
+        <p id="sf-cal-concentracion-descripcion">
+            Repaso de normalización · Sesión de 25 min
+        </p>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <h3>Tiempo restante</h3>
+
+        <p id="sf-cal-tiempo-resumen">
+            25:00
+        </p>
+
+    </div>
+
+    <div class="sf-cal-tarjeta sf-cal-tarjeta-temporizador">
+
+        <h3>Modo de concentración</h3>
+
+        <div id="sf-cal-temporizador"
+             role="timer"
+             aria-label="Tiempo restante">
+            25:00
+        </div>
+
+    </div>
+
+</section>
+
+<section id="sf-cal-vista-concentracion-finalizada"
+         class="sf-calendarios" hidden>
+
+    <div class="sf-cal-cabecera">
+
+        <small>CALENDARIOS / HU21</small>
+
+        <h1>Concentración finalizada</h1>
+
+        <p>StudyFlow registró la sesión realizada</p>
+
+        <div class="sf-cal-acciones">
+
+            <button type="button"
+                    id="sf-cal-volver-finalizada">
+                Volver a Calendarios
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="sf-cal-tarjeta">
+
+        <h3>Sesión registrada</h3>
+
+        <p id="sf-cal-sesion-registrada">
+            Repaso de normalización · 25 min · Base de Datos
+        </p>
+
+    </div>
+
+    <div class="sf-cal-tarjeta sf-cal-tarjeta-resultado">
+
+        <h3>Sesión guardada</h3>
+
+        <p id="sf-cal-minutos-registrados">
+            25 min
+        </p>
+
+    </div>
+
+</section>
+
   <p id="resultado" role="status"></p>
 </main>
 </div>
