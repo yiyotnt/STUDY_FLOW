@@ -13,3 +13,12 @@ function indicarSeccion() {
 
 indicarSeccion();
 window.addEventListener('hashchange', indicarSeccion);
+
+const encabezado = document.querySelector('.studyflow-landing > .top');
+
+const observarEncabezado = new ResizeObserver(() => {
+  const altura = encabezado.getBoundingClientRect().height;
+  document.body.style.setProperty('--sf-header-height', `${altura}px`);
+});
+
+observarEncabezado.observe(encabezado);
