@@ -627,7 +627,13 @@ figcaption {
 }
 
 .studyflow-landing .hero {
-  padding-block: clamp(2.25rem, 6vw, 5rem);
+  min-height: calc(100vh - var(--sf-header-height, 64px));
+  min-height: calc(100svh - var(--sf-header-height, 64px));
+  padding-block: clamp(2rem, 5vh, 5rem);
+}
+
+.studyflow-landing .sf-intro {
+  background: linear-gradient(135deg, #f8f6ff 0%, #eeebff 70%, #e5dfff 100%);
 }
 
 .studyflow-landing .hero h1 {
@@ -640,7 +646,25 @@ figcaption {
 }
 
 .studyflow-landing .hero p {
-  font-size: 1.125rem;
+  max-width: 55ch;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.65;
+}
+
+.studyflow-landing .hero h1 + p {
+  margin-top: 1.25rem;
+}
+
+.studyflow-landing .hero .actions {
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.studyflow-landing .hero .button {
+  display: inline-flex;
+  min-height: 52px;
+  justify-content: center;
+  align-items: center;
 }
 
 .studyflow-landing :is(.hero, .callout) .sf-primary {
@@ -789,8 +813,10 @@ figcaption {
 }
 
 .studyflow-landing .hero {
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(1rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 5vw, 5rem);
+  max-width: 108rem;
+  margin-inline: auto;
 }
 
 .studyflow-landing .hero h1 {
@@ -810,9 +836,16 @@ figcaption {
   border-top-color: #252332;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 800px) {
   .studyflow-landing .hero {
     grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .studyflow-landing .hero .actions {
+    display: grid;
   }
 }
 
@@ -823,9 +856,19 @@ figcaption {
 }
 
 .studyflow-landing .hero-art {
-  width: min(100%, 420px);
-  height: auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid #d5cdf7;
+  border-radius: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 12px 32px #29206026;
   justify-self: center;
+}
+
+@media (min-width: 801px) {
+  .studyflow-landing .hero-art {
+    max-height: max(19rem, 64vh);
+  }
 }
 
 .studyflow-landing .sf-difference li img {
